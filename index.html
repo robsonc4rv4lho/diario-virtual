@@ -2,171 +2,310 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Meu Diário Visual</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórias, Passos e Recomeços</title>
     <style>
-        /* --- ESTILOS VISUAIS (CSS) --- */
         body {
-            background-color: #16181c;
-            background-image: radial-gradient(#2b2f38 1px, transparent 1px);
-            background-size: 24px 24px;
-            color: #d1d5db;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4ede2;
+            background-image: 
+                radial-gradient(rgba(188, 108, 37, 0.05) 1.5px, transparent 1.5px),
+                radial-gradient(rgba(92, 64, 51, 0.04) 1.5px, #f4ede2 1.5px);
+            background-size: 32px 32px;
+            background-position: 0 0, 16px 16px;
+            color: #4a403b;
+            font-family: 'Georgia', serif;
             margin: 0;
-            padding: 40px;
+            padding: 50px 20px;
+        }
+
+        header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px auto;
         }
 
         h1 {
-            text-align: center;
-            color: #f3f4f6;
-            font-weight: 300;
+            color: #5c4033;
+            font-weight: normal;
             letter-spacing: 2px;
-            margin-bottom: 40px;
+            margin-bottom: 15px;
+            font-size: 2.4rem;
+        }
+
+        .manifesto-diario {
+            background-color: #fffaf0;
+            border-left: 4px solid #bc6c25;
+            padding: 22px 30px;
+            border-radius: 0 12px 12px 0;
+            box-shadow: 0 4px 15px rgba(92, 64, 51, 0.06);
+            font-style: italic;
+            color: #6b5b52;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-top: 20px;
+            border-top: 1px solid #faedcd;
+            border-right: 1px solid #faedcd;
+            border-bottom: 1px solid #faedcd;
         }
 
         .mural {
             display: flex;
             flex-wrap: wrap;
-            gap: 30px;
+            gap: 40px;
             justify-content: center;
-            max-width: 1100px;
+            align-items: flex-start;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        /* Cartão Polaroid */
         .entrada-diario {
-            background-color: #f9fafb;
-            color: #1f2937;
-            width: 340px;
-            padding: 15px 15px 25px 15px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-            border-radius: 4px;
+            background-color: #ffffff;
+            color: #4a403b;
+            width: 360px;
+            padding: 30px 25px;
+            box-shadow: 0 10px 30px rgba(92, 64, 51, 0.08);
+            border-radius: 16px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
-        }
-
-        .entrada-diario:nth-child(odd) {
-            transform: rotate(-1.5deg);
-        }
-
-        .entrada-diario:nth-child(even) {
-            transform: rotate(2deg);
+            border: 1px solid #faedcd;
         }
 
         .entrada-diario:hover {
-            transform: scale(1.03) rotate(0deg);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(188, 108, 37, 0.15);
             z-index: 10;
         }
 
         .data {
             font-size: 0.75rem;
-            color: #6b7280;
+            color: #bc6c25;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
+            margin-bottom: 10px;
+            font-weight: bold;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         .titulo-cartao {
-            font-size: 1.1rem;
-            color: #111827;
-            margin: 0 0 10px 0;
-            font-weight: 700;
+            font-size: 1.4rem;
+            color: #283618;
+            margin: 0 0 18px 0;
+            font-family: 'Georgia', serif;
         }
 
-        /* Diagramação de Citações */
         blockquote.citacao-bloco {
             font-style: italic;
-            color: #4b5563;
-            background-color: #f3f4f6;
-            border-left: 3px solid #6366f1;
-            padding: 10px 12px;
-            margin: 12px 0;
-            border-radius: 0 6px 6px 0;
-            font-size: 0.88rem;
-            line-height: 1.4;
+            color: #606c38;
+            background-color: #fefae0;
+            border-left: 3px solid #dda15e;
+            padding: 14px 18px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
 
         .bloco-musica {
-            margin: 15px 0;
+            margin: 18px 0;
             border-radius: 12px;
             overflow: hidden;
         }
 
         .texto-memoria {
-            font-size: 0.85rem;
-            line-height: 1.4;
-            margin-bottom: 12px;
-            color: #374151;
+            font-size: 0.95rem;
+            line-height: 1.75;
+            margin-bottom: 15px;
+            color: #584f48;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         .destaque-amor {
-            font-weight: 700;
-            color: #4f46e5;
+            font-weight: bold;
+            color: #bc6c25;
+            text-align: center;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            margin: 20px 0;
+            font-family: 'Georgia', serif;
+        }
+
+        .bloco-visual {
+            margin-top: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #faedcd;
         }
 
         .bloco-visual img {
             width: 100%;
             height: 220px;
             object-fit: cover;
-            border-radius: 2px;
-            margin-top: 15px;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .bloco-visual:hover img {
+            transform: scale(1.03);
         }
     </style>
 </head>
 <body>
 
-    <h1>Meu Diário Visual & Memórias</h1>
+    <header>
+        <h1>Histórias, Passos e Recomeços</h1>
+        <div class="manifesto-diario">
+            "O diário não é um registo de dor, é um testamento de que continuaste a caminhar, a aprender e a encontrar a luz e a leveza pelo caminho."
+        </div>
+    </header>
 
     <div class="mural">
 
-        <!-- CARTÃO DA MEMÓRIA RECENTE -->
+        <!-- 1. 12 de Fevereiro de 2019 -->
         <div class="entrada-diario">
-            <span class="data">Recente</span>
-            
-            <h3 class="titulo-cartao">Um novo amor ❤️</h3>
-
-            <!-- Player do Spotify -->
-            <div class="bloco-musica">
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7qM2ScAqB3NwAk0ngJsGfl?utm_source=generator" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            </div>
-
+            <span class="data">12 de Fev. de 2019</span>
+            <h3 class="titulo-cartao">O que você quer da sua vida?</h3>
             <p class="texto-memoria">
-                Pertinho de fazer quatro meses de namoro, e eu pensando que se eu for olhar em retrospecto, consigo claramente perceber o quão bem esse novo relacionamento me tem feito. Um exemplo fortíssimo disso, enquanto eu pensava nas minhas palavras ela me envia um áudio me dando suporte pra seguir meus devaneios. A transcrição é algo do tipo:
+                Mais de uma pessoa veio me fazer essa pergunta, a resposta atual é: "não sei!" (ainda). Como não saber, é o que todos se questionam. Aparentemente, tenho que dar uma resposta satisfatória para quem me pergunta. O que muitas delas não querem saber é o motivo pelo qual eu não tenho uma resposta. Se elas quisessem ouvir, as diria que por boa parte da minha vida, eu desejei encontrar a morte. Verdade! Não costumo falar a respeito, mas o fantasma do suicídio me perseguiu por anos. Por um longo tempo me vi tão depressivo que almejava não prosseguir. Não via motivos.
             </p>
-
+            <p class="texto-memoria">
+                Mas de um tempo pra cá mudei. Não tenho mais esse pensamento hoje em dia, consegui modificar parte das coisas que faziam com que eu desejasse o que mais ninguém deseja. Só que, passar muito tempo assim, te impede de planejar, sonhar, desejar coisas diferentes... Eu sinto que estou vivendo agora, aprendendo muitas coisas agora. Ainda tenho dificuldades de estabelecer metas, tenho medo, muitos. Vocês também têm os seus, não é?
+            </p>
             <blockquote class="citacao-bloco">
-                "(...) então se é uma coisa que te atrai, eu tô aqui pra te apoiar e ajudar no que puder."
+                "Mas continuo a nadar, referência a Dori, Procurando Nemo, pq não é pra ser um texto triste. Mas sim motivacional."
             </blockquote>
-
-            <p class="texto-memoria destaque-amor">
-                EU TE AMO.
-            </p>
-
             <p class="texto-memoria">
-                Eu me apaixonei pela pessoa, pelo jeito, pela risada, pelo cheiro, pelas histórias... É surpreendente como nos encaixamos. Mais de uma vez em nossas conversas dentro do carro, ficou nítido que <em>"tínhamos que passar pelo que passamos pra nós encontrar"</em>, tem quem chame de destino, não sei como chamar, sei que tô gostando.
+                Ontem eu me inscrevi para o processo de Supervisão de Operações lá da empresa, repare bem, estou buscando crescer. Não é o que sonhei, mas foi o que conquistei até agora. O que eu quero, por ora, é que eu possa ser aceito, sem muita pressão. Talvez se vocês estenderem uma das mãos, possamos ir mais longe juntos. Que tal?
             </p>
-
-            <p class="texto-memoria">
-                Por falar em conversas, com ela me sinto seguro suficiente pra falar sobre coisas que antes eu só escrevia e não mostrava pra ninguém. Me senti muitas vezes vulnerável diante dela, e por sua vez, soube me acolher, soube fazer eu não me sentir menos ou pior por ter vivido determinadas situações.
-            </p>
-
-            <p class="texto-memoria">
-                A gente transita entre assuntos complicadíssimos e difíceis de lidar até um monte de bobagens da 5ª série. Nesses quase quatro meses, eu ainda descubro novidades sobre ela a cada história. Emocionado que sou já pensei que seria uma boa ideia juntar os panos de bunda, dessa vez, sou eu que quero, não tô sendo conduzido/impelido a fazer. Mas cada coisa no seu tempo. Sei que isso vai acontecer em breve.
-            </p>
-
-            <p class="texto-memoria">
-                Levou um tempo, mas acho que encontrei o equilíbrio que nas outras tentativas de relacionamento não tinha. Dessa vez me sinto desejado na medida que desejo, me sinto amado na medida que amo, e a certeza de querer fazer dar certo.
-            </p>
-
-            <!-- Sua foto real integrada do Google Drive -->
             <div class="bloco-visual">
-                <img src="https://lh3.googleusercontent.com/d/1SxUqQkGmhhL31FlhOWe4s15OTRGUTlyF" alt="Foto do novo amor">
+                <img src="https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?auto=format&fit=crop&w=600&q=80" alt="Livro e caneca de café acolhedor">
             </div>
         </div>
 
-    </div>
+        <!-- 2. 21 de Junho de 2023 -->
+        <div class="entrada-diario">
+            <span class="data">21 de Jun. de 2023</span>
+            <h3 class="titulo-cartao">A cabeça é ruim, mas o coração é bom</h3>
+            <p class="texto-memoria">
+                Acordei de um cochilo, pensando que tô errado em me deixar esmorecer novamente, mesmo com a ciência de que é algo que não consigo controlar 100%. Tudo bem, tudo vai se encaixar de novo, coisas boas tão vindo, não posso me perder enquanto mal me achei.
+            </p>
+            <p class="texto-memoria">
+                Essas últimas semanas foram diferentes, tipo, baixei um app de relacionamentos, e sabe como é, né? Introvertido como eu sou, conhecer pessoas novas (eu sei, é uma redundância) nunca foi o meu forte. Enfim, aí comecei a conhecer algumas pessoas, mesmo que virtualmente, e isso tem sido desafiador, pois em algum momento é necessário falar sobre mim, falar sobre o que faço da vida e etc. Nunca foi simples me descrever antigamente, hoje em dia então... Deve ser por isso que adoptei a frase "a cabeça é ruim, mas o coração é bom", não diz muito, mas significa bastante. Pelo menos é o que eu acho.
+            </p>
+            <p class="texto-memoria">
+                Em contrapartida, vez ou outra o passado vem me assombrar sobre coisas que eu não estou fazendo, e me apavoro com todas as incertezas novamente. Meio que fico desconfortável com "não tô trabalhando", "precisei voltar pra casa dos meus pais", "me separei por causa do desgaste e estresse do dia a dia", "luto diariamente contra a ansiedade & depressão".
+            </p>
+            <p class="texto-memoria">
+                Seguir adiante parece que necessariamente preciso dar um passo pra trás. O problema disso é que em alguns dias eu tropeço e caio. Não vou mentir, há uma coisa interessante no fato de conhecer pessoas, elas te elogiam, te colocam pra cima, te beijam e te fazem se sentir desejados novamente. E I sei que não devemos esperar/depender de terceiros pra se sentir amado, bem consigo, mas vai, sem hipocrisia, é sempre bom receber elogios, carinho e etc.
+            </p>
+            <blockquote class="citacao-bloco">
+                "Concluo que estar ocioso tem me deixado ansioso. Preciso voltar a ter foco em pedalar, em ler meus livros, quem sabe até fazer desenhos para a Helena pintar."
+            </blockquote>
+            <div class="bloco-visual">
+                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80" alt="Momento de reflexão e calmaria">
+            </div>
+        </div>
 
-</body>
-</html>
+        <!-- 3. 24 de Junho de 2023 -->
+        <div class="entrada-diario">
+            <span class="data">24 de Jun. de 2023</span>
+            <h3 class="titulo-cartao">Estrela do mar na cama</h3>
+            <p class="texto-memoria">
+                São quase 2h da manhã, acordei e fiquei me virando na cama tentando voltar a dormir, sem sucesso diga-se de passagem. O sono me abandonou e a vontade de escrever se fez presente.
+            </p>
+            <p class="texto-memoria">
+                Dessa vez estou dividindo a cama com meus filhos, Helena e Belchior, dois folgados onde cada um que se comporta como uma estrela do mar, com braços e pernas abertas como se o espaço da cama de casal não tivesse limites. Principalmente se pensar em como eu fico encolhido pra não atrapalhar os dois. E quem me conhece sabe que não sou nenhum pouco pequeno.
+            </p>
+            <p class="texto-memoria">
+                Um pensamento de felicidade estava me contagiando durante a madrugada, fosse ele por saber que teria minha filha a semana inteira comigo, fosse pelas lembranças da noite anterior. Penso em como é meio bobo dizer, mas A GENTE SE ACOSTUMA MUITO RÁPIDO COM O QUE É BOM, com o que nos faz bem.
+            </p>
+            <p class="texto-memoria">
+                Um abraço, um beijo, uma conversa que oscila desde temas sensíveis tratados em sessões de terapia até bobagens, cotidiano, sabe como é né? Não o suficiente, perceber também um sorriso no canto do rosto indicando que possivelmente está tudo bem e que estava sendo ou muitíssimo agradável. Sei lá!
+            </p>
+            <p class="texto-memoria">
+                A noite anterior havia um roteiro que eu não segui a risca, mas não foi de caso pensado, apenas deixei acontecer, me permiti agir naturalmente, seja invadindo a cozinha e assumindo o fogão, seja me aproximando e beijando, surpreendendo considerablemente a moça cheirosa que me cativou, e agora quase 3h20 da manhã me percebo já sentindo um pouco da sua ausência, da sua gargalhada ao ouvir minhas besteiras, ou acompanhar um filme com delay, de ficar apenas abraçadinho sentindo sua pele macia.
+            </p>
+            <blockquote class="citacao-bloco">
+                "Há tempos que não me sentia confortável com outra pessoa assim."
+            </blockquote>
+            <div class="bloco-visual">
+                <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=600&q=80" alt="Ambiente calmo e aconchegante à noite">
+            </div>
+        </div>
+
+        <!-- 4. 29 de Julho de 2023 -->
+        <div class="entrada-diario">
+            <span class="data">29 de Jul. de 2023</span>
+            <h3 class="titulo-cartao">O subconsciente e os pesadelos</h3>
+            <p class="texto-memoria">
+                Tenho tido pesadelos outra vez. A origem deles é que não sei ao certo, há diversos fatores, desde a ansiedade gerada por estar novamente vivenciando situações como; novo emprego; novo rolo com alguém, e coisas como; ausência correta da medicação; a falta de terapia; a indisposição de ir pedalar.
+            </p>
+            <p class="texto-memoria">
+                Não é de hoje que digo que viver coisas novas me apavoram em certos momentos, de modo geral eu tenho até agido bem, ao menos procuro externalizar isso. Porém, lá no subsolo do subconsciente o medo vem em forma de pesadelos, por exemplo, esses dias sonhei com uma cobra dentro do bebedouro aqui de casa, tive pesadelos com estar desorientado dentro de ônibus, vagando o dia inteiro sem conseguir chegar ao suposto destino, sonhei agora com o carro sendo roubado logo após deixar ou buscar Helena num lugar completamente diferente do que é de costume.
+            </p>
+            <blockquote class="citacao-bloco">
+                "Os dois últimos foram bem angustiantes, pareciam reais demais. Talvez fosse só tico e teco trazendo o receio da rua estranha que estava ontem enquanto colocava Helena na cadeirinha."
+            </blockquote>
+            <div class="bloco-visual">
+                <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=600&q=80" alt="Caminho sob a luz suave">
+            </div>
+        </div>
+
+        <!-- 5. 01 de Agosto de 2023 -->
+        <div class="entrada-diario">
+            <span class="data">01 de Ago. de 2023</span>
+            <h3 class="titulo-cartao">Recomeços e Spy x Family</h3>
+            <p class="texto-memoria">
+                Queria anunciar que depois de 03 longos meses desempregado, hoje eu consegui assinar os documentos de contrato de trabalho para uma empresa da qual eu nunca havia conseguido entrar. Finalmente! Foram várias etapas, exames, entrevistas, meu Deus, a todo momento eu achava que não ia conseguir, mas consegui. Preciso apenas me adaptar novamente à rotina de um lugar grande e que provavelmente me trará inúmeras cobranças. E dessa vez sem plano de saúde. Misericórdia senhor...
+            </p>
+            <p class="texto-memoria">
+                É isso, outro dia respondi com lágrimas no rosto que o ato de cometer suicídio não era covardia nem era coragem, mas sim desespero, a angústia de não ter a resposta ou solução pras coisas que deixaram deprimidos a esse ponto. Mas a minha meta de vida é ver minha filha crescer, ver minha filha bem, saudável. Se eu me entregasse ao desespero, não teria essa oportunidade. Porém ouvi que estava sendo muito rígido com ela, e nem preciso dizer o quanto isso me deprimiu.
+            </p>
+            <p class="texto-memoria">
+                Mas se precisa exemplificar, bom, tenta imaginar um cara com as minhas proporções andando do shopping depois de resolver umas coisas, com as lágrimas escorrendo só de pensar o quanto seria legal se meu pacotinho estivesse passeando ali comigo. Do quanto ela ia gostar de ver tal roupa, tal brinquedo... O coração apertou tanto, tanto que pedi em nome de tudo o que fosse sagrado pra que a mãe de Helena desse um abraço nela por mim.
+            </p>
+            <p class="texto-memoria">
+                Não quero e nem vou deixar a depressão me vencer, mas têm dias que é bem difícil. Aí vou ver desenho no meu tempo livre, algo que era pra me distrair, algo que seja leve e que não faça pensar nos meus problemas, mas o que eu achei no lugar? Um anime muito bonitinho chamado <em>Spy x Family</em>...
+            </p>
+            <blockquote class="citacao-bloco">
+                "A vontade de abraçar a minha filha é enorme, a vontade de dizer pra ela que ela é amada imensamente embora as circunstâncias, dizer que ela vai poder contar comigo pra sempre cresce a cada cena sobre a construção dos personagens como família."
+            </blockquote>
+            <div class="bloco-visual">
+                <img src="https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?auto=format&fit=crop&w=600&q=80" alt="Afeto e abraço em família">
+            </div>
+        </div>
+
+        <!-- 6. 17 de Agosto de 2023 -->
+        <div class="entrada-diario">
+            <span class="data">17 de Ago. de 2023</span>
+            <h3 class="titulo-cartao">Cada escolha uma consequência</h3>
+            <p class="texto-memoria">
+                Cada escolha uma consequência, dias atrás eu precisei tanto de uma consulta e ela foi sumariamente cancelada sem previsão, me atrapalhou muito essa decisão, tendo em vista que não fui mais tentar buscar ajuda. Comecei o emprego, tem dias mais tranquilos que outros pra realizar as atividades e aprender sobre o produto e etc, mas a parte negativa é não ter acesso ao plano de saúde, isso nem faz sentido. Mesmo assim sigo na esperança de vir a ser alguém...
+            </p>
+            <p class="texto-memoria">
+                Sabe como é, alguém que se mantém, alguém que dá o mínimo para a filha, que ajuda financeiramente os pais, não o inverso. Alguém que consiga alcançar uma profissão melhor mesmo que seja dentro da atual empresa. Enfim, do nada eu recebo uma ligação me chamando pra um encaixe de última hora para fazer com que um médico que não faço ideia de quem seja, médico esse que já havia sido cancelado pelo próprio local e agora que estou ligado a um emprego não quis sair ainda enquanto estou na experiência.
+            </p>
+            <p class="texto-memoria">
+                Já não me basta dormir descaradamente na cara de uma moça mega chata, fazer cara feia pra umas situações que discordo um pouco, eu não posso me arriscar mais, não quero perder o emprego novamente.
+            </p>
+            <div class="bloco-visual">
+                <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80" alt="Escrita e reflexão num caderno">
+            </div>
+        </div>
+
+        <!-- 7. 22 de Outubro de 2023 -->
+        <div class="entrada-diario">
+            <span class="data">22 de Out. de 2023</span>
+            <h3 class="titulo-cartao">Experiência</h3>
+            <p class="texto-memoria">
+                Não era o que esperava pra agora, digo, até sabia que não ter muito futuro pra mim lá dentro, foi muito fácil pegar ranço das coisas de lá, não só pela cobrança, mas como algumas coisas que diariamente geravam descontentamentos. Eu sabia que sairia, não imaginei ser o primeiro, um monte de gente descontente exatamente sobre tudo, houve até quem pediu pra sair e não conseguiu, enfim.
+            </p>
+            <p class="texto-memoria">
+                Quase em todos os feedbacks eu ouvia "vender não é obrigatório, mas a oferta é", mentira! Era preciso oferecer assistências e seguros, parcelamentos e empréstimo, obrigatoriamente era preciso marcar em campanhas o que ofereceu, se cliente aceitou ou não e a venda só acontecia, em tese, depois de ser o chato que insiste várias e várias vezes até quem está do outro lado da linha cedesse, ou desligasse na cara de quem tá se humilhando.
+            </p>
+            <p class="texto-memoria">
+                Dar bom dia e receber, "tô aqui a 30min espero que você tenha capacidade de me ajudar", "é um desrespeito", "sou cliente há anos, sempre foi assim", "não aceito isso", "fui na loja e agora tá cobrando um monte de seguro", "quero cancelar isso"... Era assim o dia inteiro.
+            </p>
+            <blockquote class="citacao-bloco">
+                "Resolver problemas, nunca me foi um problema, sempre tive a capacidade de entender e analisar a situação de modo muito rápido, mas nunca, ou quase nunca consegui converter um contato em vendas por que na minha cabeça não fazia sentido."
+            </blockq
