@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Meu Diário Visual</title>
+    <style>
+        /* --- ESTILOS VISUAIS (CSS) --- */
+        body {
+            background-color: #16181c;
+            background-image: radial-gradient(#2b2f38 1px, transparent 1px);
+            background-size: 24px 24px;
+            color: #d1d5db;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 40px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #f3f4f6;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+        }
+
+        .mural {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Cartão Polaroid */
+        .entrada-diario {
+            background-color: #f9fafb;
+            color: #1f2937;
+            width: 340px;
+            padding: 15px 15px 25px 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            border-radius: 4px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .entrada-diario:nth-child(odd) {
+            transform: rotate(-1.5deg);
+        }
+
+        .entrada-diario:nth-child(even) {
+            transform: rotate(2deg);
+        }
+
+        .entrada-diario:hover {
+            transform: scale(1.03) rotate(0deg);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+            z-index: 10;
+        }
+
+        .data {
+            font-size: 0.75rem;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .titulo-cartao {
+            font-size: 1.1rem;
+            color: #111827;
+            margin: 0 0 10px 0;
+            font-weight: 700;
+        }
+
+        /* Diagramação de Citações */
+        blockquote.citacao-bloco {
+            font-style: italic;
+            color: #4b5563;
+            background-color: #f3f4f6;
+            border-left: 3px solid #6366f1;
+            padding: 10px 12px;
+            margin: 12px 0;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.88rem;
+            line-height: 1.4;
+        }
+
+        .bloco-musica {
+            margin: 15px 0;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .texto-memoria {
+            font-size: 0.85rem;
+            line-height: 1.4;
+            margin-bottom: 12px;
+            color: #374151;
+        }
+
+        .destaque-amor {
+            font-weight: 700;
+            color: #4f46e5;
+        }
+
+        .bloco-visual img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 2px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Meu Diário Visual & Memórias</h1>
+
+    <div class="mural">
+
+        <!-- CARTÃO DA MEMÓRIA RECENTE -->
+        <div class="entrada-diario">
+            <span class="data">Recente</span>
+            
+            <h3 class="titulo-cartao">Um novo amor ❤️</h3>
+
+            <!-- Player do Spotify -->
+            <div class="bloco-musica">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7qM2ScAqB3NwAk0ngJsGfl?utm_source=generator" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+
+            <p class="texto-memoria">
+                Pertinho de fazer quatro meses de namoro, e eu pensando que se eu for olhar em retrospecto, consigo claramente perceber o quão bem esse novo relacionamento me tem feito. Um exemplo fortíssimo disso, enquanto eu pensava nas minhas palavras ela me envia um áudio me dando suporte pra seguir meus devaneios. A transcrição é algo do tipo:
+            </p>
+
+            <blockquote class="citacao-bloco">
+                "(...) então se é uma coisa que te atrai, eu tô aqui pra te apoiar e ajudar no que puder."
+            </blockquote>
+
+            <p class="texto-memoria destaque-amor">
+                EU TE AMO.
+            </p>
+
+            <p class="texto-memoria">
+                Eu me apaixonei pela pessoa, pelo jeito, pela risada, pelo cheiro, pelas histórias... É surpreendente como nos encaixamos. Mais de uma vez em nossas conversas dentro do carro, ficou nítido que <em>"tínhamos que passar pelo que passamos pra nós encontrar"</em>, tem quem chame de destino, não sei como chamar, sei que tô gostando.
+            </p>
+
+            <p class="texto-memoria">
+                Por falar em conversas, com ela me sinto seguro suficiente pra falar sobre coisas que antes eu só escrevia e não mostrava pra ninguém. Me senti muitas vezes vulnerável diante dela, e por sua vez, soube me acolher, soube fazer eu não me sentir menos ou pior por ter vivido determinadas situações.
+            </p>
+
+            <p class="texto-memoria">
+                A gente transita entre assuntos complicadíssimos e difíceis de lidar até um monte de bobagens da 5ª série. Nesses quase quatro meses, eu ainda descubro novidades sobre ela a cada história. Emocionado que sou já pensei que seria uma boa ideia juntar os panos de bunda, dessa vez, sou eu que quero, não tô sendo conduzido/impelido a fazer. Mas cada coisa no seu tempo. Sei que isso vai acontecer em breve.
+            </p>
+
+            <p class="texto-memoria">
+                Levou um tempo, mas acho que encontrei o equilíbrio que nas outras tentativas de relacionamento não tinha. Dessa vez me sinto desejado na medida que desejo, me sinto amado na medida que amo, e a certeza de querer fazer dar certo.
+            </p>
+
+            <!-- Sua foto real integrada do Google Drive -->
+            <div class="bloco-visual">
+                <img src="https://lh3.googleusercontent.com/d/1SxUqQkGmhhL31FlhOWe4s15OTRGUTlyF" alt="Foto do novo amor">
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
