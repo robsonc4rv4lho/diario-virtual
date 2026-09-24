@@ -22,12 +22,10 @@
 
         body {
             background-color: var(--bg-site);
-            /* Fundo abstrato escuro texturizado com referências visuais subliminares (música, ciclismo, games, gatos e afeto) */
             background-image: 
-                radial-gradient(circle at 10% 15%, rgba(61, 130, 219, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 90% 85%, rgba(176, 112, 214, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 50% 50%, rgba(247, 208, 70, 0.04) 0%, transparent 60%),
-                url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.023'%3E%3C!-- Notas musicais e guitarras (Rock) --%3E%3Cpath d='M20 20h5v15h-5zM22 15a3 3 0 1 1-3 3 3 3 0 0 1 3-3zm20 30h5v15h-5zM42 25a3 3 0 1 1-3 3 3 3 0 0 1 3-3z'/%3E%3C!-- Engrenagens e correntes (Ciclismo) --%3E%3Ccircle cx='75' cy='25' r='8' fill='none' stroke='%23ffffff' stroke-width='1.5' stroke-opacity='0.03'/%3E%3Cpath d='M75 15v20M65 25h20' stroke='%23ffffff' stroke-width='1' stroke-opacity='0.03'/%3E%3C!-- Pixels e formas geométricas (Nintendo / Games) --%3E%3Crect x='15' y='75' width='10' height='10' fill-opacity='0.03'/%3E%3Crect x='30' y='80' width='8' height='8' fill-opacity='0.03'/%3E%3C!-- Silhueta abstrata de gato (Belchior) --%3E%3Cpath d='M85 75l3-6 3 6zM80 85a8 8 0 0 1 16 0z' fill-opacity='0.03'/%3E%3C/g%3E%3C/svg%3E");
+                radial-gradient(circle at 10% 15%, rgba(61, 130, 219, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 90% 85%, rgba(176, 112, 214, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(247, 208, 70, 0.08) 0%, transparent 60%);
             background-attachment: fixed;
             color: var(--texto-principal);
             font-family: var(--fonte-serif);
@@ -39,7 +37,7 @@
         header {
             text-align: center;
             max-width: 800px;
-            margin: 0 auto 70px auto;
+            margin: 0 auto 50px auto;
         }
 
         h1 {
@@ -50,6 +48,31 @@
             margin-bottom: 20px;
             font-family: 'Georgia', serif;
             text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        /* Elementos gráficos visuais das paixões */
+        .elementos-passoes {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+            opacity: 0.85;
+            flex-wrap: wrap;
+        }
+
+        .elemento-icone {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 8px 12px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85rem;
+            font-family: var(--fonte-sans);
+            color: #cbd5e0;
+            backdrop-filter: blur(5px);
         }
 
         .manifesto {
@@ -124,18 +147,18 @@
             margin-bottom: 25px;
         }
 
-        /* Regras ABNT com recuo aplicado a TODOS os parágrafos, incluindo a primeira linha */
+        /* Regras ABNT com recuo aplicado a TODOS os parágrafos */
         .texto-diario {
             font-size: 1.05rem;
             color: #cbd5e0;
             font-family: var(--fonte-serif);
-            text-align: justify;          /* Justificado ABNT */
-            text-indent: 2.5cm;            /* Recuo de parágrafo ABNT em todas as linhas iniciais */
-            line-height: 1.5;              /* Espaçamento 1,5 ABNT */
+            text-align: justify;
+            text-indent: 2.5cm;
+            line-height: 1.5;
             margin-bottom: 15px;
         }
 
-        /* Citações ABNT: recuo de 4cm à esquerda, fonte menor, espaçamento simples */
+        /* Citações ABNT */
         blockquote {
             font-style: italic;
             font-size: 0.95rem;
@@ -154,12 +177,37 @@
             letter-spacing: 1px;
             color: #ffffff;
         }
+
+        /* Estilo para as fotografias importadas */
+        .bloco-visual {
+            margin-top: 30px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #2d3748;
+        }
+
+        .bloco-visual img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            display: block;
+        }
     </style>
 </head>
 <body>
 
     <header>
         <h1>Histórias, Passos e Recomeços</h1>
+        
+        <!-- Elementos Visuais das Paixões -->
+        <div class="elementos-passoes">
+            <span class="elemento-icone" title="Ciclismo">🚴‍♂️ Ciclismo</span>
+            <span class="elemento-icone" title="Música Rock">🎸 Rock</span>
+            <span class="elemento-icone" title="Nintendo">🎮 Nintendo</span>
+            <span class="elemento-icone" title="Gato Siamês">🐱 Belchior</span>
+            <span class="elemento-icone" title="Pai e Filha">👨‍👧 Helena</span>
+        </div>
+
         <div class="manifesto">
             "O diário não é um registo de dor, é um testamento de que continuaste a caminhar, a aprender e a encontrar a luz e a leveza pelo caminho."
         </div>
@@ -371,6 +419,28 @@
             <p class="texto-diario">
                 Não há só problemas nessa minha vida, achei uma moça fantástica e que se dispôs a me ouvir e eu abri meu coração. Estamos há dois meses juntos. E pela primeira vez consigo pensar em um futuro onde eu não esteja sozinho (mesmo tendo minha filha aos finais de semana). Agora mais do que nunca quero estar bem pra ver minha menina crescer e ter um relacionamento que não me faça querer desistir de viver.
             </p>
+        </article>
+
+        <!-- 19 de Setembro de 2026 (Com a foto da Helena) -->
+        <article class="cartao-sentimento sentimento-alegria-acolhimento">
+            <span class="data-entrada">19 de Setembro de 2026</span>
+            <p class="texto-diario">
+                Hoje foi um daqueles dias em que a presença da minha filha ilumina tudo ao redor. Olhar para a Helena me faz perceber o quanto o tempo está a passar rápido e o quanto cada momento partilhado com ela se torna o verdadeiro sentido de tudo o que faço. Brincámos, conversámos sobre as coisas dela da escola, e ver aquele sorriso genuíno renova qualquer energia esgotada pela rotina da semana. É nela que encontro a força mais pura para continuar a caminhar e a construir um futuro melhor.
+            </p>
+            <div class="bloco-visual">
+                <img src="Helena.jpg" alt="Helena">
+            </div>
+        </article>
+
+        <!-- 20 de Setembro de 2026 (Com a foto da Glênia) -->
+        <article class="cartao-sentimento sentimento-alegria">
+            <span class="data-entrada">20 de Setembro de 2026</span>
+            <p class="texto-diario">
+                Passar o dia com a Glênia tem sido a confirmação mais bonita de que o equilíbrio e a leveza finalmente encontraram o seu lugar na minha vida. Conversámos sobre tudo, desde os assuntos mais profundos e desafiantes até aquelas bobagens que só a gente entende, rimos até não poder mais dentro do carro e percebi, mais uma vez, o quão natural e segura é a nossa sintonia. É incrível como a vida nos dá voltas inesperadas para nos colocar exatamente onde merecemos estar.
+            </p>
+            <div class="bloco-visual">
+                <img src="Glênia.jpg" alt="Glênia">
+            </div>
         </article>
 
         <!-- 22 de setembro 2026 -->
