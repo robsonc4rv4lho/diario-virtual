@@ -5,9 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Histórias, Passos e Recomeços</title>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap');
+
 :root{
---bg-site:#0d0f14;--texto-principal:#e2e8f0;--cor-data:#a0aec0;
---fonte-serif:Georgia,serif;--fonte-sans:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+--bg-site:#0a0c10;--texto-principal:#e2e8f0;--cor-data:#f0a500;
+--fonte-titulo:'Montserrat', sans-serif;
+--fonte-subtitulo:'Playfair Display', Georgia, serif;
+--fonte-sans:'Plus Jakarta Sans', sans-serif;
 --alegria:#f7d046;--tristeza:#3d82db;--medo:#b070d6;--raiva:#e54b4b;
 }
 *{box-sizing:border-box}
@@ -18,8 +22,8 @@ background-image:
 radial-gradient(circle at 10% 15%,rgba(61,130,219,.12) 0%,transparent 40%),
 radial-gradient(circle at 90% 85%,rgba(176,112,214,.12) 0%,transparent 40%),
 radial-gradient(circle at 50% 50%,rgba(247,208,70,.06) 0%,transparent 60%);
-background-attachment:fixed;color:var(--texto-principal);font-family:var(--fonte-serif);
-margin:0;padding:60px 20px 90px;line-height:1.5;overflow-x:hidden
+background-attachment:fixed;color:var(--texto-principal);font-family:var(--fonte-subtitulo);
+margin:0;padding:60px 20px 90px;line-height:1.6;overflow-x:hidden
 }
 body:before{
 content:"";position:fixed;inset:0;pointer-events:none;z-index:-3;
@@ -54,77 +58,447 @@ radial-gradient(ellipse at 85% 75%,rgba(176,112,214,.07),transparent 22%)
 .forma.bloco.b1{left:8vw;top:43vh}.forma.bloco.b2{right:10vw;top:13vh;transform:rotate(13deg)}
 .forma.ponto{width:7px;height:7px;border-radius:50%;background:rgba(247,208,70,.24);box-shadow:0 0 0 10px rgba(247,208,70,.035)}
 .forma.ponto.p1{left:27vw;top:30vh}.forma.ponto.p2{right:28vw;top:51vh}.forma.ponto.p3{left:12vw;top:91vh}.forma.ponto.p4{right:9vw;top:82vh}
-
-header{max-width:900px;margin:0 auto 40px;text-align:center;position:relative;z-index:2}
-h1{font-size:2.6rem;font-weight:normal;letter-spacing:2.5px;color:#f7fafc;margin:0 0 25px;font-family:Georgia,serif;text-shadow:0 2px 10px rgba(0,0,0,.5)}
-.manifesto{font-style:italic;color:#cbd5e0;font-size:1.15rem;line-height:1.6;border-bottom:2px solid #2d3748;padding-bottom:30px;max-width:700px;margin:0 auto}
+header{max-width:900px;margin:0 auto 50px;text-align:center;position:relative;z-index:2}
+h1{font-size:3rem;font-weight:800;letter-spacing:2px;color:#f7fafc;margin:0 0 20px;font-family:var(--fonte-titulo);text-shadow:0 4px 20px rgba(0,0,0,.6);background:linear-gradient(135deg,#fff 30%,#cbd5e0 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.manifesto{font-style:italic;color:#cbd5e0;font-size:1.2rem;line-height:1.6;border-bottom:2px solid rgba(45,55,72,.8);padding-bottom:30px;max-width:720px;margin:0 auto}
 .container-diario{
 max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;
 position:relative;z-index:2;align-items:start
 }
 .cartao-sentimento{
 background:linear-gradient(145deg,rgba(26,32,44,.96),rgba(20,25,35,.95));
-padding:22px 24px;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.45);
+padding:24px 26px;border-radius:16px;box-shadow:0 12px 35px rgba(0,0,0,.45);
 transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease,background .28s ease;
-position:relative;overflow:hidden;border:1px solid #2d3748;min-height:170px;
+position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.08);min-height:180px;
 cursor:pointer;transform:translate3d(0,0,0);isolation:isolate
 }
 .cartao-sentimento:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.32;background:linear-gradient(135deg,rgba(255,255,255,.025),transparent 38%,rgba(255,255,255,.012))}
 .cartao-sentimento:after{content:"";position:absolute;width:180px;height:180px;right:-100px;bottom:-105px;border-radius:50%;border:1px solid rgba(255,255,255,.025);box-shadow:0 0 0 30px rgba(255,255,255,.012),0 0 0 60px rgba(255,255,255,.008);pointer-events:none}
-.cartao-sentimento:hover{box-shadow:0 18px 42px rgba(0,0,0,.58);border-color:#465267}
-.cartao-sentimento.is-near{box-shadow:0 15px 38px rgba(0,0,0,.52);border-color:#3b475c}
-.cartao-sentimento.is-open{grid-column:1 / -1;cursor:default;min-height:0;transform:none!important;box-shadow:0 18px 48px rgba(0,0,0,.62);border-color:#536176;background:linear-gradient(145deg,rgba(27,34,47,.98),rgba(17,22,31,.98))}
-.cartao-sentimento.is-open .texto-diario,.cartao-sentimento.is-open blockquote,.cartao-sentimento.is-open .titulo-foto{display:block}
-.cartao-sentimento.is-open .data-entrada{margin-bottom:25px}
-.cartao-sentimento:not(.is-open) .texto-diario,.cartao-sentimento:not(.is-open) blockquote,.cartao-sentimento:not(.is-open) .titulo-foto{display:none}
-.cartao-sentimento:not(.is-open):after{content:"clique para abrir";position:absolute;right:20px;bottom:16px;font-family:var(--fonte-sans);font-size:.62rem;letter-spacing:1.7px;text-transform:uppercase;color:rgba(203,213,224,.34)}
+.cartao-sentimento:hover{box-shadow:0 18px 42px rgba(0,0,0,.58);border-color:rgba(255,255,255,.25);transform:translateY(-3px)}
+.cartao-sentimento.is-open{grid-column:1 / -1;cursor:default;min-height:0;transform:none!important;box-shadow:0 22px 55px rgba(0,0,0,.68);border-color:rgba(255,255,255,.3);background:linear-gradient(145deg,rgba(27,34,47,.98),rgba(17,22,31,.98))}
+
+.cartao-sentimento.is-open .cabecalho-cartao,
+.cartao-sentimento.is-open .conteudo-expansivel,
+.cartao-sentimento.is-open .bloco-visual{display:block}
+
+.cartao-sentimento.is-open .cabecalho-cartao{margin-bottom:24px}
+
+.cartao-sentimento:not(.is-open) .conteudo-expansivel,
+.cartao-sentimento:not(.is-open) .bloco-visual{display:none}
+
+.cartao-sentimento:not(.is-open) .cabecalho-cartao{margin-bottom:0}
+
+.cartao-sentimento:not(.is-open):after{content:"clique para abrir";position:absolute;right:22px;bottom:16px;font-family:var(--fonte-sans);font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:rgba(240,165,0,.7);font-weight:700}
 
 .sentimento-tristeza-medo{border-left:6px solid var(--tristeza);border-top:3px solid var(--medo)}
 .sentimento-alegria-acolhimento{border-left:6px solid var(--alegria);border-top:3px solid #f0a500}
 .sentimento-raiva-medo{border-left:6px solid var(--raiva);border-top:3px solid var(--medo)}
-.sentimento-alegria{border-left:6px solid var(--alegria);border-top:3px solid var(--alegria)}
+.sentimento-alegria{border-left:6px solid var(--alegria);border-top:6px solid var(--alegria)}
 .sentimento-alegria-tristeza{border-left:6px solid var(--alegria);border-top:6px solid var(--tristeza)}
 
-.data-entrada{font-size:.72rem;text-transform:uppercase;letter-spacing:2px;color:var(--cor-data);font-weight:bold;font-family:var(--fonte-sans);display:block;margin-bottom:0;position:relative;z-index:1}
-.titulo-foto{font-size:1.3rem;font-family:Georgia,serif;color:#f7fafc;margin-bottom:15px;letter-spacing:1px}
-.texto-diario{font-size:1.05rem;color:#cbd5e0;font-family:var(--fonte-serif);text-align:justify;text-indent:2.5cm;line-height:1.5;margin-bottom:15px}
-blockquote{font-style:italic;font-size:.95rem;line-height:1.35;color:#e2e8f0;background-color:#242b38;border-left:3px solid #a0aec0;margin:25px 0;padding:15px 20px;text-align:justify;text-indent:0}
+.cabecalho-cartao{display:flex;flex-direction:column;gap:8px;position:relative;z-index:1}
+.data-entrada{font-size:.75rem;text-transform:uppercase;letter-spacing:2.5px;color:var(--cor-data);font-weight:800;font-family:var(--fonte-sans);display:flex;align-items:center;gap:6px}
+.data-entrada::before{content:"✦";font-size:.6rem;opacity:.8}
+
+.titulo-entrada{font-size:1.3rem;font-family:var(--fonte-titulo);color:#ffffff;font-weight:800;margin:0;line-height:1.35;letter-spacing:-0.2px;}
+
+.cartao-sentimento:not(.is-open) .titulo-entrada{
+  font-size:1.1rem;
+  margin-top:4px;
+  color:#f7fafc;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+  font-family:var(--fonte-titulo);
+  font-weight:700;
+}
+
+.conteudo-expansivel p {font-size:1.08rem;color:#cbd5e0;font-family:var(--fonte-subtitulo);text-align:justify;text-indent:2cm;line-height:1.7;margin-bottom:18px}
+.conteudo-expansivel ul {margin:18px 0;padding-left:30px;color:#cbd5e0}
+.conteudo-expansivel li {margin-bottom:8px;line-height:1.6}
+.conteudo-expansivel h2 {font-size:1.35rem;color:#fff;font-family:var(--fonte-titulo);border-left:4px solid var(--cor-data);padding-left:12px;margin:35px 0 20px 0;font-weight:800;}
+
+blockquote{font-style:italic;font-size:1.02rem;line-height:1.5;color:#f7fafc;background:linear-gradient(135deg,rgba(36,43,56,.9),rgba(26,32,44,.9));border-left:4px solid var(--cor-data);margin:25px 0;padding:18px 22px;text-align:justify;text-indent:0;border-radius:0 8px 8px 0;box-shadow:0 4px 15px rgba(0,0,0,.2)}
 .destaque-forte{font-weight:bold;letter-spacing:1px;color:#fff}
 
-.bloco-visual{margin-top:14px;border-radius:10px;overflow:hidden;border:1px solid #2d3748;background:#10141c;position:relative}
+/* ESTILO ESPECÍFICO DO CARD 2014 (Mais largo, Fundo Claro + Mapa da Terra Média) */
+.cartao-monografia {
+    grid-column: 1 / -1 !important;
+    background-color: rgba(248, 249, 250, 0.94);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.82)), 
+                      url('https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcTsSqVI5WBNVpB5nsZjrqDTFL1y2t2FSegLq3jpQ9dhQ9qShDmpeAanmZhsmkuvY5DbCQ5rIyfyQS2wN6g');
+    background-size: cover;
+    background-position: center;
+    color: #2c3e50;
+    border: 1px solid #dcdde1;
+    border-left: 6px solid #2980b9 !important;
+    border-top: 3px solid #2980b9 !important;
+}
+
+.cartao-monografia:hover {
+    border-color: #2980b9;
+}
+
+.cartao-monografia .titulo-entrada,
+.cartao-monografia :not(.is-open) .titulo-entrada {
+    color: #1a252f !important;
+    font-size: 1.6rem !important;
+}
+
+.cartao-monografia:not(.is-open):after {
+    content: "CLIQUE PARA ABRIR A MONOGRAFIA" !important;
+    color: rgba(41, 128, 185, 0.9) !important;
+}
+
+.cartao-monografia .conteudo-expansivel p,
+.cartao-monografia .conteudo-expansivel ul,
+.cartao-monografia .conteudo-expansivel li {
+    color: #2c3e50 !important;
+}
+
+.cartao-monografia .conteudo-expansivel h2 {
+    color: #1a252f !important;
+    border-left-color: #2980b9 !important;
+}
+
+.cartao-monografia blockquote {
+    color: #2c3e50 !important;
+    background: rgba(253, 253, 253, 0.9) !important;
+    border-left-color: #2980b9 !important;
+}
+
+.cartao-monografia .intro-card {
+    background-color: rgba(248, 249, 250, 0.95);
+    border: 1px solid #e0e0e0;
+    color: #2c3e50;
+}
+
+.cartao-monografia .timeline-container {
+    border-left-color: #2980b9;
+}
+
+.cartao-monografia .timeline-item::before {
+    background-color: #2980b9;
+    border-color: #ffffff;
+}
+
+.cartao-monografia .timeline-step {
+    color: #2980b9;
+}
+
+.cartao-monografia .timeline-title {
+    color: #1a252f;
+}
+
+.cartao-monografia .timeline-desc {
+    color: #2c3e50;
+}
+
+.cartao-monografia .card-title {
+    color: #2980b9;
+}
+
+.cartao-monografia .avatar-card {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-color: #dcdde1;
+}
+
+.cartao-monografia .book-cover-circle {
+    border-color: #2980b9;
+}
+
+.cartao-monografia .avatar-tag {
+    background-color: rgba(248, 249, 250, 0.9);
+    color: #2980b9;
+    border: 1px solid #dcdde1;
+}
+
+.cartao-monografia .avatar-book {
+    color: #1a252f;
+}
+
+.cartao-monografia .avatar-quote {
+    color: #2c3e50;
+    background-color: rgba(248, 249, 250, 0.9);
+    border-left-color: #2980b9;
+}
+
+.cartao-monografia .student-quote {
+    background-color: rgba(244, 247, 249, 0.95);
+    border-left-color: #34495e;
+}
+
+.cartao-monografia .student-tag {
+    color: #2980b9;
+}
+
+.cartao-monografia .highlight {
+    color: #2980b9;
+}
+
+.cartao-monografia.is-open {
+    background: linear-gradient(145deg, rgba(252, 252, 252, 0.98), rgba(245, 247, 250, 0.98));
+    border-color: #2980b9;
+}
+
+.intro-card {
+    background-color: rgba(26, 32, 44, 0.92);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+    font-style: italic;
+    color: #e2e8f0;
+}
+
+.timeline-container {
+    position: relative;
+    margin: 30px 0;
+    padding-left: 25px;
+    border-left: 3px solid var(--cor-data);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -33px;
+    top: 4px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--cor-data);
+    border: 2px solid #1a202c;
+}
+
+.timeline-step {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--cor-data);
+    font-weight: bold;
+    font-family: var(--fonte-sans);
+}
+
+.timeline-title {
+    font-size: 1.05rem;
+    font-weight: bold;
+    color: #fff;
+    margin: 2px 0 6px 0;
+}
+
+.timeline-desc {
+    font-size: 0.95rem;
+    color: #cbd5e0;
+    line-height: 1.5;
+}
+
+.comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 25px 0;
+}
+
+@media (max-width: 600px) {
+    .comparison-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.card-pleasure {
+    background-color: rgba(61, 130, 219, 0.15);
+    padding: 18px;
+    border-radius: 8px;
+    border-top: 4px solid var(--tristeza);
+}
+
+.card-obligation {
+    background-color: rgba(229, 75, 75, 0.15);
+    padding: 18px;
+    border-radius: 8px;
+    border-top: 4px solid var(--raiva);
+}
+
+.card-title {
+    font-weight: bold;
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+    color: #fff;
+    font-family: var(--fonte-titulo);
+}
+
+.avatar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin: 25px 0;
+}
+
+.avatar-card {
+    background-color: rgba(20, 25, 35, 0.9);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 12px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.book-cover-circle {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--cor-data);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    margin-bottom: 12px;
+}
+
+.avatar-tag {
+    background-color: rgba(240, 165, 0, 0.15);
+    color: var(--cor-data);
+    font-weight: bold;
+    font-size: 0.75rem;
+    padding: 2px 10px;
+    border-radius: 12px;
+    margin-bottom: 6px;
+    font-family: var(--fonte-sans);
+}
+
+.avatar-book {
+    font-size: 0.9rem;
+    color: #fff;
+    font-weight: bold;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.avatar-quote {
+    font-size: 0.85rem;
+    color: #cbd5e0;
+    text-align: left;
+    line-height: 1.4;
+    background-color: rgba(26, 32, 44, 0.8);
+    padding: 10px;
+    border-radius: 6px;
+    border-left: 3px solid var(--cor-data);
+    width: 100%;
+}
+
+.student-quote {
+    background-color: rgba(26, 32, 44, 0.9);
+    border-left: 4px solid var(--medo);
+    padding: 16px;
+    margin: 20px 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.student-tag {
+    font-weight: bold;
+    color: var(--medo);
+    font-family: var(--fonte-sans);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.highlight {
+    font-weight: bold;
+    color: var(--cor-data);
+}
+
+.bloco-visual{margin-top:16px;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.12);background:#10141c;position:relative;box-shadow:0 8px 25px rgba(0,0,0,.4)}
 .bloco-visual img{width:100%;height:220px;object-fit:cover;display:block;filter:none}
-.is-open .bloco-visual{margin-top:25px}.is-open .bloco-visual img{height:auto;max-height:520px}
+.is-open .bloco-visual{margin-top:30px}
+.is-open .bloco-visual img{height:auto;max-height:520px}
 
 @media(max-width:980px){.container-diario{grid-template-columns:repeat(2,minmax(0,1fr));max-width:850px}}
 @media(max-width:700px){
-body{padding:35px 14px 60px}h1{font-size:2rem;letter-spacing:1.5px}.manifesto{font-size:1rem}
-.container-diario{grid-template-columns:1fr;gap:18px}.cartao-sentimento{min-height:125px;padding:20px 21px}
-.cartao-sentimento.is-open{grid-column:auto}.texto-diario{font-size:1rem;text-indent:1.5cm}blockquote{margin-left:10px}
-.bloco-visual img{height:210px}.forma.bloco{display:none}
+body{padding:35px 14px 60px}h1{font-size:2.2rem;letter-spacing:2px}.manifesto{font-size:1.05rem}
+.container-diario{grid-template-columns:1fr;gap:18px}.cartao-sentimento{min-height:135px;padding:20px 21px}
+.cartao-sentimento.is-open{grid-column:auto}.conteudo-expansivel p{font-size:1.02rem;text-indent:1.2cm}blockquote{margin-left:5px}
+.bloco-visual img{height:210px}.forma.bloco{display:none}.forma.circulo.c3,.forma.circulo.c4{opacity:.65}
 }
 
 @media (hover: none), (pointer: coarse) {
-  .cartao-sentimento { cursor: pointer; -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
-  .cartao-sentimento:not(.is-open)::after {
-    content: "TOQUE PARA ABRIR"; position: absolute; right: 18px; bottom: 14px;
-    font-family: var(--fonte-sans); font-size: .58rem; letter-spacing: 1.5px; color: rgba(203,213,224,.48);
+  .cartao-sentimento {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
-  .cartao-sentimento.is-open { grid-column: 1 / -1; z-index: 30; transform: none !important; }
-  .cartao-sentimento.is-open .texto-diario,
-  .cartao-sentimento.is-open blockquote,
-  .cartao-sentimento.is-open .titulo-foto { display: block !important; opacity: 1; }
+  .cartao-sentimento:not(.is-open)::after {
+    content: "TOQUE PARA ABRIR";
+    position: absolute;
+    right: 18px;
+    bottom: 14px;
+    font-family: var(--fonte-sans);
+    font-size: .6rem;
+    letter-spacing: 1.8px;
+    color: rgba(240,165,0,.8);
+    font-weight: 700;
+  }
+  .cartao-monografia:not(.is-open)::after {
+    content: "TOQUE PARA ABRIR A MONOGRAFIA" !important;
+    color: rgba(41, 128, 185, 0.9) !important;
+  }
+  .cartao-sentimento.is-open {
+    grid-column: 1 / -1;
+    z-index: 30;
+    transform: none !important;
+  }
+  .cartao-sentimento.is-open .cabecalho-cartao,
+  .cartao-sentimento.is-open .conteudo-expansivel,
+  .cartao-sentimento.is-open .bloco-visual {
+    display: block !important;
+    opacity: 1;
+    max-height: none;
+  }
 }
 
 .cartao-sentimento[data-temp-1]{
-  --temp-1: #8a9bb5; --temp-2: #8a9bb5; --temp-intensity: .22;
+  --temp-1: #8a9bb5;
+  --temp-2: #8a9bb5;
+  --temp-intensity: .22;
   border-top: 2px solid transparent;
-  background-image: linear-gradient(145deg,rgba(26,32,44,.96),rgba(20,25,35,.95)), linear-gradient(90deg,var(--temp-1),var(--temp-2));
-  background-origin:border-box; background-clip:padding-box,border-box;
+  background-image:
+    linear-gradient(145deg,rgba(26,32,44,.96),rgba(20,25,35,.95)),
+    linear-gradient(90deg,var(--temp-1),var(--temp-2));
+  background-origin:border-box;
+  background-clip:padding-box,border-box;
 }
-.cartao-sentimento[data-temp-1]:hover{ box-shadow:0 18px 42px rgba(0,0,0,.58); }
+.cartao-sentimento[data-temp-1]::before{
+  background:
+    radial-gradient(circle at 92% 8%, color-mix(in srgb, var(--temp-1) 16%, transparent), transparent 34%),
+    linear-gradient(135deg,rgba(255,255,255,.025),transparent 38%,rgba(255,255,255,.012));
+  opacity:1;
+}
+.cartao-sentimento[data-temp-1]::after{
+  background:radial-gradient(circle at 75% 25%, color-mix(in srgb, var(--temp-2) 10%, transparent), transparent 68%);
+  border-color:rgba(255,255,255,.018);
+  box-shadow:0 0 0 30px rgba(255,255,255,.010),0 0 0 60px rgba(255,255,255,.006);
+}
+.cartao-sentimento[data-temp-1]:hover{
+  box-shadow:0 18px 42px rgba(0,0,0,.58),0 0 26px color-mix(in srgb, var(--temp-1) 10%, transparent);
+}
 .cartao-sentimento[data-temp-1].is-open{
-  background-image: linear-gradient(145deg,rgba(27,34,47,.98),rgba(17,22,31,.98)), linear-gradient(90deg,var(--temp-1),var(--temp-2));
-  box-shadow:0 18px 48px rgba(0,0,0,.62);
+  background-image:
+    linear-gradient(145deg,rgba(27,34,47,.98),rgba(17,22,31,.98)),
+    linear-gradient(90deg,var(--temp-1),var(--temp-2));
+  box-shadow:0 22px 55px rgba(0,0,0,.68),0 0 30px color-mix(in srgb, var(--temp-2) 7%, transparent);
 }
 </style>
 </head>
@@ -137,7 +511,6 @@ body{padding:35px 14px 60px}h1{font-size:2rem;letter-spacing:1.5px}.manifesto{fo
   <span class="forma bloco b1"></span><span class="forma bloco b2"></span>
   <span class="forma ponto p1"></span><span class="forma ponto p2"></span><span class="forma ponto p3"></span><span class="forma ponto p4"></span>
 </div>
-
 <header>
 <h1>Histórias, Passos e Recomeços</h1>
 <div class="manifesto">"O diário não é um registo de dor, é um testamento de que continuaste a caminhar, a aprender e a encontrar a luz e a leveza pelo caminho."</div>
@@ -145,123 +518,308 @@ body{padding:35px 14px 60px}h1{font-size:2rem;letter-spacing:1.5px}.manifesto{fo
 
 <div class="container-diario">
 
-<!-- 21 de Junho de 2023 -->
-<article class="cartao-sentimento sentimento-tristeza-medo" data-temp-1="#3d82db" data-temp-2="#ff8a3d" style="--temp-1:#3d82db;--temp-2:#ff8a3d;">
-<span class="data-entrada">21 de Junho de 2023</span>
-<p class="texto-diario">Acordei de um cochilo, pensando que tô errado em me deixar esmorecer novamente, mesmo com a ciência de que é algo que não consigo controlar 100%. Tudo bem, tudo vai se encaixar de novo, coisas boas estão vindo, não posso me perder enquanto mal me achei.</p>
-<p class="texto-diario">Essas últimas semanas foram diferentes, tipo, baixei um app de relacionamentos, e sabe como é, né? Introvertido como eu sou, conhecer pessoas novas (eu sei, é uma redundância) nunca foi o meu forte. Enfim, aí comecei a conhecer algumas pessoas, mesmo que virtualmente, e isso tem sido desafiador, pois em algum momento é necessário falar sobre mim, falar sobre o que faço da vida e etc. Nunca foi simples me descrever antigamente, hoje em dia então...</p>
-<blockquote>"Deve ser por isso que adotei a frase 'a cabeça é ruim, mas o coração é bom', não diz muito, mas significa bastante. Pelo menos é o que eu acho."</blockquote>
-<p class="texto-diario">Em contrapartida, vez ou outra o passado vem me assombrar sobre coisas que eu não estou conseguindo fazer, e me apavoro com todas as incertezas novamente. Meio que fico desconfortável com "não tô trabalhando", "precisei voltar pra casa dos meus pais", "luto diariamente contra a ansiedade & depressão".</p>
-<p class="texto-diario">Seguir adiante parece que necessariamente preciso dar um passo pra trás. O problema disso é que em alguns dias eu tropeço e caio. Não vou mentir, há uma coisa interessante no fato de conhecer pessoas, elas te elogiam, te colocam pra cima, te beijam e te fazem se sentir desejado novamente.</p>
-<blockquote>"Concluo que estar ocioso tem me deixado ansioso. Preciso voltar a ter foco em pedalar, em ler meus livros, quem sabe até fazer desenhos pra Helena pintar."</blockquote>
+<!-- CARD: MONOGRAFIA (Largo e Destacado) -->
+<article class="cartao-sentimento cartao-monografia">
+<div class="cabecalho-cartao">
+<h2 class="titulo-entrada">Por Obrigação ou Por Prazer?</h2>
+</div>
+<div class="conteudo-expansivel">
+    <div class="intro-card">
+        Em 2014, durante minha trajetória no Curso Superior de Tecnologia em Gestão Desportiva e de Lazer no IFRN Campus Natal Cidade Alta, decidi investigar uma provocação central sob a orientação do Prof. Dr. Marcel Lúcio Matias Ribeiro: quando foi que a leitura deixou de ser uma descoberta leve para se tornar um dever pesado?
+    </div>
+
+    <p>Na maioria das vezes, o primeiro contato com os livros acontece na escola. É com a alfabetização que começamos a decifrar códigos e letras. Contudo, como nos lembrava Paulo Freire em <em>A importância do ato de ler</em>, a leitura do mundo antecede a leitura das palavras. Antes mesmo de interpretar os símbolos gráficos, nós já 'lemos' o ambiente ao nosso redor, nossas experiências e nossas memórias.</p>
+
+    <blockquote>"Somente nas leituras desinteressadas é que se pode encontrar um livro que se torna o 'seu' livro."<cite style="display:block;font-size:0.85rem;margin-top:6px;color:#636e72">— Italo Calvino, 2004</cite></blockquote>
+
+    <p>Ainda assim, o ambiente escolar frequentemente transforma esse ato em uma obrigação funcional, imposta para testar conhecimentos e cumprir programas didáticos. Essa cobrança rigorosa muitas vezes afasta os jovens do prazer genuíno de ler.</p>
+
+    <h2>1. O Lazer e as Dimensões da Leitura</h2>
+    <p>Ao analisar a leitura sob a ótica do lazer, fundamentada nas pesquisas do sociólogo Joffre Dumazedier, percebe-se que ela se encaixa no <span class="highlight">interesse intelectual</span>. O lazer é compreendido como um conjunto de ocupações às quais o indivíduo entrega-se de livre vontade — seja para repousar, divertir-se ou desenvolver sua formação de maneira desinteressada.</p>
+
+    <div class="timeline-container">
+        <div class="timeline-item">
+            <span class="timeline-step">Fase 1 • Infância</span>
+            <div class="timeline-title">A Leitura do Mundo (Paulo Freire)</div>
+            <div class="timeline-desc">Primeiras percepções sensoriais e emocionais do ambiente antes do domínio do código escrito.</div>
+        </div>
+        
+        <div class="timeline-item">
+            <span class="timeline-step">Fase 2 • Alfabetização &amp; Família</span>
+            <div class="timeline-title">O Despertar pelo Afeto</div>
+            <div class="timeline-desc">Influência de parentes e descoberta de sagas marcantes (ex: <em>Harry Potter</em> com incentivo da família).</div>
+        </div>
+
+        <div class="timeline-item">
+            <span class="timeline-step">Fase 3 • O Choque Escolar</span>
+            <div class="timeline-title">A Leitura Funcional Obrigatória</div>
+            <div class="timeline-desc">A imposição de relatórios e provas transforma o ato de ler em uma obrigação racional e utilitária.</div>
+        </div>
+
+        <div class="timeline-item">
+            <span class="timeline-step">Fase 4 • Ensino Superior no IFRN</span>
+            <div class="timeline-title">Reencontro nas Brechas do Tempo</div>
+            <div class="timeline-desc">Busca voluntária por ficção, e-books e literatura como refúgio em meio à rotina de estudos.</div>
+        </div>
+    </div>
+
+    <p>Maria Helena Martins divide a experiência da leitura em três níveis complementares:</p>
+    <ul>
+        <li><strong>Sensorial:</strong> A percepção física e estética do objeto livro (cheiro, textura, toque).</li>
+        <li><strong>Emocional:</strong> A empatia e a conexão direta com as histórias e personagens.</li>
+        <li><strong>Racional:</strong> A busca crítica por conceitos, diálogo e utilidade acadêmica.</li>
+    </ul>
+
+    <div class="comparison-grid">
+        <div class="card-pleasure">
+            <div class="card-title">Leitura por Prazer</div>
+            <p style="font-size:0.95rem;text-indent:0;color:#2c3e50;">Baseada nos níveis emocional e sensorial. Promove fruição, relaxamento, desenvolvimento da sensibilidade e o "fluxo" de bem-estar pessoal.</p>
+        </div>
+        <div class="card-obligation">
+            <div class="card-title">Leitura por Obrigação</div>
+            <p style="font-size:0.95rem;text-indent:0;color:#2c3e50;">Restrita ao nível racional utilitário. Focada no cumprimento de tarefas, relatórios e avaliações, gerando por vezes afastamento do hábito.</p>
+        </div>
+    </div>
+
+    <h2>2. Vozes do Campo: O Hábito na Prática</h2>
+    <p>Para verificar como essas teorias se aplicavam na realidade, entrevistei estudantes dos cursos técnicos integrados de Informática e Mecatrônica do IFRN Câmpus Parnamirim. As conversas revelaram realidades fascinantes sobre o surgimento do hábito e suas barreiras.</p>
+
+    <div class="avatar-grid">
+        <div class="avatar-card">
+            <img src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcQsKA6Vs47RmNRzelpV2BYrhmPBOpOZxK1lZTV84jDUgGzv-jE4luJ_BIK-DSWemANiwO5vA2G9pxQ-qZI" alt="Capa Harry Potter" class="book-cover-circle">
+            <span class="avatar-tag">Aluna 01</span>
+            <div class="avatar-book">Harry Potter</div>
+            <div class="avatar-quote">"Minha tia é professora... com seis anos ela já começou a mostrar <em>Harry Potter</em> pra mim. Senti mais facilidade na escola e fui tomando gosto."</div>
+        </div>
+
+        <div class="avatar-card">
+            <img src="https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcRBEGc_s7q9suemaHvNhWq_ufZddZxMTYbkw6DLzxsHXRJ9GeAr5JVXproZNRtEK6BzSev_tmjNgeVvbFo" alt="Capa A Menina que Roubava Livros" class="book-cover-circle">
+            <span class="avatar-tag">Aluna 06</span>
+            <div class="avatar-book">A Menina que Roubava Livros</div>
+            <div class="avatar-quote">"Eu fui na Bienal e vi um livro... Eu me apaixonei... Quando você lê, você vê as coisas de outra forma."</div>
+        </div>
+
+        <div class="avatar-card">
+            <img src="https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcQL9k3F2uCbqoPZStA8QQbrWOKX94xYe0L4l9TVd2Ba3rYj8nckvan-Jw0QL9G8NHPtvnqcsAqEvMJf8bs" alt="Capa O Hobbit" class="book-cover-circle">
+            <span class="avatar-tag">Aluno 21</span>
+            <div class="avatar-book">Fantasias e Mundos</div>
+            <div class="avatar-quote">"Leitura para mim é sair desse mundo turbulento e ir para um mundo que é só meu. Construir fantasias e recriar as cenas na imaginação."</div>
+        </div>
+    </div>
+
+    <div class="student-quote">
+        <span class="student-tag">O Desafio do Acesso — Aluno 23</span>
+        "Não leio por prazer por falta de tempo e porque não é disponível. É muito caro... só leio os que o professor passa porque é obrigado."
+    </div>
+
+    <h2>3. Transformação e Qualidade de Vida</h2>
+    <p>Quando a leitura ocorre nos momentos de lazer, ela impacta diretamente o estilo de vida e a construção da identidade do leitor. Como ressaltou Mihaly Csikszentmihalyi em seus estudos sobre a psicologia do envolvimento, a realização de atividades por escolha própria gera a experiência de "fluxo", essencial para a satisfação pessoal.</p>
+
+    <div class="student-quote">
+        <span class="student-tag">Amadurecimento e Empatia — Aluno 07</span>
+        "Com alguns livros você passa a entender os sentimentos que algumas pessoas tinham. Você passa a ver o mundo de outras maneiras... Você se torna mais maduro, muito mais maduro lendo."
+    </div>
+
+    <h2>Considerações e Memórias</h2>
+    <p>Este trabalho mostrou que a obrigação e o prazer não precisam ser inimigos irreconciliáveis. Embora a escola desempenhe o papel essencial de introduzir o conhecimento, o verdadeiro hábito da leitura consolida-se nas brechas do tempo livre, no desinteresse produtivo do lazer e na liberdade de escolha.</p>
+    <p style="font-size:0.85rem;color:#636e72;text-indent:0;margin-top:20px;text-align:center;">Publicado originalmente em 2014/2015 como Trabalho de Conclusão de Curso (TCC) no IFRN Campus Natal Cidade Alta. Orientação: Prof. Dr. Marcel Lúcio Matias Ribeiro.</p>
+</div>
 </article>
 
-<!-- 24 de Junho de 2023 -->
-<article class="cartao-sentimento sentimento-alegria-acolhimento" data-temp-1="#f7d046" data-temp-2="#62c5aa" style="--temp-1:#f7d046;--temp-2:#62c5aa;">
+<!-- CARD: 21 de Junho de 2023 -->
+<article class="cartao-sentimento sentimento-tristeza-medo" data-temp-1="#3d82db" data-temp-2="#ff8a3d" data-temp-intensity="0.34" style="--temp-1:#3d82db;--temp-2:#ff8a3d;--temp-intensity:0.34;">
+<div class="cabecalho-cartao">
+<span class="data-entrada">21 de Junho de 2023</span>
+<h2 class="titulo-entrada">A cabeça é ruim, mas o coração é bom</h2>
+</div>
+<div class="conteudo-expansivel">
+<p class="texto-diario">Acordei de um cochilo, pensando que tô errado em me deixar esmorecer novamente, mesmo com a ciência de que é algo que não consigo controlar 100%. Tudo bem, tudo vai se encaixar de novo, coisas boas estão vindo, não posso me perder enquanto mal me achei.</p>
+<p class="texto-diario">Essas últimas semanas foram diferentes, tipo, baixei um app de relacionamentos, e sabe como é, né? Introvertido como eu sou, conhecer pessoas novas (eu sei, é uma redundância) nunca foi o meu forte. Enfim, aí comecei a conhecer algumas pessoas, mesmo que virtualmente, e isso has sido desafiador, pois em algum momento é necessário falar sobre mim, falar sobre o que faço da vida e etc. Nunca foi simples me descrever antigamente, hoje em dia então... Deve ser por isso que adotei a frase "a cabeça é ruim, mas o coração é bom", não diz muito, mas significa bastante. Pelo menos é o que eu acho.</p>
+<p class="texto-diario">Em contrapartida, vez ou outra o passado vem me assombrar sobre coisas que eu não estou conseguindo fazer, e me apavoro com todas as incertezas novamente. Meio que fico desconfortável com "não tô trabalhando", "precisei voltar pra casa dos meus pais", "me separei por causa do desgaste e estresse do dia a dia", "luto diariamente contra a ansiedade & depressão".</p>
+<p class="texto-diario">Seguir adiante parece que necessariamente preciso dar um passo pra trás. O problema disso é que em alguns dias eu tropeço e caio. Não vou mentir, há uma coisa interessante no fato de conhecer pessoas, elas te elogiam, te colocam pra cima, te beijam e te fazem se sentir desejado novamente. E eu sei que não devemos esperar/depender de terceiros para se sentir amado, bem consigo, mas vai, sem hipocrisia, é sempre bom receber elogios, carinho e etc.</p>
+<p class="texto-diario">Concluo que estar ocioso tem me deixado ansioso. Preciso voltar a ter foco em pedalar, em ler meus livros, quem sabe até fazer desenhos pra Helena pintar.</p>
+</div>
+</article>
+
+<!-- CARD: 24 de Junho de 2023 -->
+<article class="cartao-sentimento sentimento-alegria-acolhimento" data-temp-1="#f7d046" data-temp-2="#62c5aa" data-temp-intensity="0.34" style="--temp-1:#f7d046;--temp-2:#62c5aa;--temp-intensity:0.34;">
+<div class="cabecalho-cartao">
 <span class="data-entrada">24 de Junho de 2023</span>
+<h2 class="titulo-entrada">A gente se acostuma muito rápido com o que é bom</h2>
+</div>
+<div class="conteudo-expansivel">
 <p class="texto-diario">São quase 2h da manhã, acordei e fiquei me revirando na cama tentando voltar a dormir, sem sucesso diga-se de passagem. O sono me abandonou e a vontade de escrever se fez presente.</p>
 <p class="texto-diario">Dessa vez estou dividindo a cama com meus filhos, Helena e Belchior, dois folgados onde cada um que se comporta como uma estrela do mar, com braços e pernas abertas como se o espaço da cama de casal não tivesse limites. Principalmente se pensar em como eu fico encolhido pra não atrapalhar os dois. E quem me conhece sabe que não sou nenhum pouco pequeno.</p>
-<blockquote>"Um pensamento de felicidade estava me contagiando durante a madrugada, fosse ele por saber que teria minha filha a semana inteira comigo, fosse pelas lembranças da noite anterior. Penso em como é meio bobo dizer, mas A GENTE SE ACOSTUMA MUITO RÁPIDO COM O QUE É BOM, com o que nos faz bem."</blockquote>
+<p class="texto-diario">Um pensamento de felicidade estava me contagiando durante a madrugada, fosse ele por saber que teria minha filha a semana inteira comigo, fosse pelas lembranças da noite anterior. Penso em como é meio bobo dizer, mas A GENTE SE ACOSTUMA MUITO RÁPIDO COM O QUE É BOM, com o que nos faz bem.</p>
 <p class="texto-diario">Um abraço, um beijo, uma conversa que oscila desde temas sensíveis tratados em sessões de terapia até bobagens, cotidiano, sabe como é né? Não o bastante, perceber também um sorriso no canto do rosto indicando que possivelmente está tudo bem e que estava sendo ou muitíssimo agradável. Sei lá!</p>
-<blockquote>"Há tempos que não me sentia confortável com outra pessoa assim."</blockquote>
+<p class="texto-diario">A noite anterior havia um roteiro que eu não segui a risca, mas não foi de caso pensado, apenas deixei acontecer, me permiti agir naturalmente, seja invadindo a cozinha e assumindo o fogão, seja me aproximando e beijando, surpreendendo consideravelmente a moça cheirosa que me cativou, e agora quase 3h20 da manhã me percebo já sentido um pouco da sua ausência, da sua gargalhada ao ouvir minhas besteiras, ou acompanhar um filme com delay, de ficar apenas abraçadinho sentindo sua pele macia.</p>
+<p class="texto-diario">Há tempos que não me sentia confortável com outra pessoa assim.</p>
+</div>
 </article>
 
-<!-- 29 de Junho de 2023 -->
-<article class="cartao-sentimento sentimento-raiva-medo" data-temp-1="#3d82db" data-temp-2="#e54b4b" style="--temp-1:#3d82db;--temp-2:#e54b4b;">
+<!-- CARD: 29 de Junho de 2023 -->
+<article class="cartao-sentimento sentimento-raiva-medo" data-temp-1="#3d82db" data-temp-2="#e54b4b" data-temp-intensity="0.34" style="--temp-1:#3d82db;--temp-2:#e54b4b;--temp-intensity:0.34;">
+<div class="cabecalho-cartao">
 <span class="data-entrada">29 de Junho de 2023</span>
+<h2 class="titulo-entrada">A vida, meus amigos, é uma caixinha de surpresas</h2>
+</div>
+<div class="conteudo-expansivel">
 <p class="texto-diario">Começo a escrever já com uma citação em mente que quero deixar em evidência: "a vida, meus amigos, é uma caixinha de surpresas", se você sacou a referência, ótimo, será mais fácil a compreensão, senão, por favor vá assistir a história de Josef Climber.</p>
-<p class="texto-diario">Com essa espetacular frase em mente, queria relembrar o quão envolvido eu estava com uma moça que conheci on-line, tivemos uma noite mega agradável, mas ela sumiu. Não atendia minhas ligações, ou não me respondia mais. Quando resolveu responder disse que minha "insistência" havia feito ela perder o interesse.</p>
-<blockquote>"Falei com uma amiga, perguntei o que eu tinha de errado, pois nada tava dando certo ou fazendo sentido. Ouvi que o problema não era eu, e que não deveria me cobrar pela ação dos outros."</blockquote>
-<p class="texto-diario">Enfim, os apps de encontro não faziam mais parte do telefone, resolvi tentar de novo, embora o desgaste tenha feito com que eu achasse bobagem tentar de novo. Não podia estar mais errado... Apareceu uma moça que parecia interessante. Curti, recebi a notificação dela de volta. Match! A conversa começou devagar, mas fluiu tão bem que me esqueci completamente do porque eu estava triste.</p>
-<p class="texto-diario" style="color:#ff6b6b;font-weight:bold;text-indent:0">Atualização: Deu ruim, era estelionatária, com direito a processo e tudo. #CILADA</p>
+<p class="texto-diario">Com essa espetacular frase em mente, queria relembrar o quão envolvido eu estava com uma moça que conheci on-line, tivemos uma noite mega agradável, mas ela sumiu. Não atendia minhas ligações, ou não me respondia mais. Quando resolveu responder disse que minha "insistência" havia feito ela perder o interesse. Até onde eu sei, pra construir uma relação, independente do tipo, é necessário ter um pouco de comunicação, aprendi isso na marra, mas aprendi. Então a justificativa não fez muito sentido na minha cabeça e novamente eu tinha me decepcionado tentando seguir em frente.</p>
+<p class="texto-diario">Falei com uma amiga, perguntei o que eu tinha de errado, pois nada tava dando certo ou fazendo sentido. Ouvi que o problema não era eu, e que não deveria me cobrar pela ação dos outros. Difícil compreender ou assimilar isso com a ansiedade comendo o juízo, fazendo com que eu me sentisse não digno de me relacionar com alguém que tinha chamado tanto minha atenção.</p>
+<p class="texto-diario">Enfim, os apps de encontro não faziam mais parte do telefone, resolvi tentar de novo, embora o desgaste tenha feito com que eu achasse bobagem tentar de novo. Não podia estar mais errado... Sei lá que horas da noite do dia 28/06 apareceu uma moça que parecia interessante. Curti, recebi a notificação dela de volta. Match! A conversa começou devagar, não sabia o que dizer pra alguém com a camiseta de time de futebol.</p>
+<p class="texto-diario">Surpresa minha, ao falar do clima de chuva, Netflix e que só faltava alguém pra ficar agarradinho, ela concordou, e já perguntou se seria aqui ou lá na casa dela. Desenrolada demais! A conversa migrou pro WhatsApp, e aí meus amigos, o papo fluiu tão bem, tão natural que eu me esqueci completamente do porque eu estava triste. Não sou adepto de casualidades, e já fui chamado de emocionado uma vez, mas não precisei me segurar, foi tudo muito recíproco.</p>
+<p class="texto-diario">Conversamos até às 5h da manhã, por mensagens... Teve de tudo, o que não vem ao caso, e agora ansiamos pelo encontro, pra por em prática ao menos metade do que foi falado, tenha em mente que foram muitas horas de papo. Nem preciso dizer a respeito do meu sorriso bobo enquanto escrevo, né?</p>
+<p class="texto-diario">Foi um achado fantástico, quero muito encontrá-la, o coração chega a errar o compasso. Fantástico também foi uma coisa que ela mencionou hoje de tarde, que por minha causa ela havia voltado a escrever, e o simbolismo por trás desse gesto, fez com que eu me sentisse ainda mais encantado. Eu hein, nunca tinha me sentido assim.</p>
+<p class="texto-diario" style="color:#c0392b;font-weight:bold;text-indent:0">Atualização: Deu ruim, era estelionatária, com direito a processo e tudo. #CILADA</p>
+</div>
 </article>
 
-<!-- 1 de Agosto de 2023 -->
-<article class="cartao-sentimento sentimento-tristeza-medo" data-temp-1="#f7d046" data-temp-2="#ff8a3d" style="--temp-1:#f7d046;--temp-2:#ff8a3d;">
+<!-- CARD: 1 de Agosto de 2023 -->
+<article class="cartao-sentimento sentimento-tristeza-medo" data-temp-1="#f7d046" data-temp-2="#ff8a3d" data-temp-intensity="0.28" style="--temp-1:#f7d046;--temp-2:#ff8a3d;--temp-intensity:0.28;">
+<div class="cabecalho-cartao">
 <span class="data-entrada">1 de Agosto de 2023</span>
-<p class="texto-diario">Queria anunciar que depois de 03 longos meses desempregado, hoje eu consegui assinar os documentos de contrato de trabalho para uma empresa da qual eu nunca havia conseguido entrar. Finalmente! Foram várias etapas, exames, entrevistas, meu Deus, a todo momento eu achava que não ia conseguir, mas consegui.</p>
-<blockquote>"É isso, outro dia respondi com lágrimas no meu rosto que o ato de cometer suicídio não era covardia nem era coragem, mas sim desespero, a angústia de não ter a resposta ou solução pras coisas que deixaram deprimidos a esse ponto. Mas a minha meta de vida é ver minha filha crescer, ver minha filha bem, saudável."</blockquote>
-<p class="texto-diario">Não quero e nem vou deixar a depressão me vencer, mas têm dias que é bem difícil. Aí vou ver desenho no meu tempo livre para me distrair, e achei um anime muito bonitinho chamado Spy x Family...</p>
-<blockquote>"A vontade de abraçar a minha filha é enorme, a vontade de dizer pra ela que ela é amada imensamente embora as circunstâncias, dizer que ela vai poder contar comigo pra sempre cresce a cada cena sobre a construção dos personagens como família."</blockquote>
+<h2 class="titulo-entrada">Novo emprego e os recomeços de Spy x Family</h2>
+</div>
+<div class="conteudo-expansivel">
+<p class="texto-diario">Queria anunciar que depois de 03 longos meses desempregado, hoje eu consegui assinar os documentos de contrato de trabalho para uma empresa da qual eu nunca havia conseguido entrar. Finalmente! Foram várias etapas, exames, entrevistas, meu Deus, a todo momento eu achava que não ia conseguir, mas consegui. Preciso apenas me adaptar novamente a rotina de um lugar grande e que provavelmente me trará inúmeras cobranças. E dessa vez sem plano de saúde. Misericórdia senhor...</p>
+<p class="texto-diario">É isso, outro dia respondi com lágrimas no meu rosto que o ato de cometer suicídio não era covardia nem era coragem, mas sim desespero, a angústia de não ter a resposta ou solução pras coisas que deixaram deprimidos a esse ponto. Mas a minha meta de vida é ver minha filha crescer, ver minha filha bem, saudável. Se eu me entregasse ao desespero, não teria essa oportunidade. Porém ouvi que estava sendo muito rígido com ela, e nem preciso dizer o quanto isso me deprimiu.</p>
+<p class="texto-diario">Mas se precisar exemplificar, bom, tenta imaginar um cara com as minhas proporções andando pelo shopping depois de resolver umas coisas, com as lágrimas escorrendo só de pensar o quanto seria legal se meu pacotinho estivesse passeando ali comigo. Do quanto ela ia gostar de ver tal roupa, tal brinquedo... O coração apertou tanto, tanto que pedi em nome de tudo o que fosse sagrado pra que a mãe de Helena desse um abraço nela por mim.</p>
+<p class="texto-diario">Não quero e nem vou deixar a depressão me vencer, mas têm dias que é bem difícil. Aí vou ver desenho no meu tempo livre, algo que era pra me distrair, algo que seja leve e que não me faça pensar nos meus problemas, mas o que eu achei no lugar? Um anime muito bonitinho chamado Spy x Family, tipo, é a história de um espião chamado Twilight que de uma hora pra outra precisa formar uma família e enfrentar os desafios de ser espião e de ser responsável por uma filha e esposa sem revelar sua identidade secreta.</p>
+<p class="texto-diario">Olha as ideias, ele tem a missão de se aproximar de um vilão estranho e evitar uma guerra, mas esse cara não sai de casa, a não ser pra ir na escola do filho e a agência de espionagem diz que o Twilight, que é o melhor espião da companhia, é o único que consegue realizar tal missão. Mas o que é torna o desenho engraçado é que ele precisa adotar uma criança, construir uma família, para poder entrar numa escola super renomada e tentar proximidade com o filho do tal vilão.</p>
+<p class="texto-diario">Assim sendo, ele vai até um orfanato, lá o cuidador do lugar, visivelmente bêbado, empurra-o para uma menina que aparentemente já havia sido rejeitada várias vezes, mas o mais engraçado até então, é que a menininha parece ter poderes, ela lê os pensamentos dos outros, mas obviamente não conta pra ninguém. Bom, ele diz se chamar Loid Forger e que é um psiquiatra, e que queria ser pai, Anya Forger, a menina recém adotada e que já havia lido seus pensamentos, viu que era tudo mentirinha e descobriu desde o início que o novo pai é na verdade um espião. O anime é engraçado demais, depois aparece uma moça que precisa achar um namorado graças às leis estranhas da cidade, e acaba conhecendo o Loid, mas essa moça também esconde umas coisas, ela é uma assassina profissional, e claro, não conta pra ninguém, embora a Anya tenha descoberto logo de cara.</p>
+<p class="texto-diario">Tudo muito bom, muito bonitinho, mas aí que vem o plot twist do desenho, tem umas coisas sobre como cuidar e educar uma criança, cuidar de uma lar, se relacionar com a outra pessoa que ele escolheu pra ser sua companhia, e poxa têm umas coisas que só quem é pai de verdade pode saber o que é, e eu bobo que sou, já chorei horrores quando a Anya se sente querida por um pai e por uma mãe, coisa que ela com 06 anos sempre quis, imagina como é pra uma criança querer se sentir segura e protegida por uma família que mostre real interesse em ficar com ela, em querer ensinar a viver e sobre as coisas da escola e por mais que tudo seja apenas uma relação de mentirinha, ele acaba de achar sua família. Eu ainda nem cheguei na metade do desenho, nem sei o que vai acontecer. Mas a vontade de abraçar a minha filha é enorme, a vontade de dizer pra ela que ela é amada imensamente embora as circunstâncias, dizer que ela vai poder contar comigo pra sempre cresce a cada cena sobre a construção dos personagens como família.</p>
+</div>
 </article>
 
-<!-- 5 de Agosto de 2023 -->
-<article class="cartao-sentimento sentimento-alegria-acolhimento" data-temp-1="#f7d046" data-temp-2="#62c5aa" style="--temp-1:#f7d046;--temp-2:#62c5aa;">
+<!-- CARD: 5 de Agosto de 2023 -->
+<article class="cartao-sentimento sentimento-alegria-acolhimento" data-temp-1="#f7d046" data-temp-2="#62c5aa" data-temp-intensity="0.32" style="--temp-1:#f7d046;--temp-2:#62c5aa;--temp-intensity:0.32;">
+<div class="cabecalho-cartao">
 <span class="data-entrada">5 de Agosto de 2023</span>
-<p class="texto-diario">Primeiro final de semana no trabalho, até aqui tá indo tudo muito fácil, a teoria costuma ser sempre assim. Ontem assim que saí do trabalho fui correndo pra casa em Parnamirim, banho e sai correndo pra buscar a gordinha, contudo eu não esperava os bloqueios no caminho, quase não consigo chegar na hora que disse que chegaria. Graças a Deus deu tudo certo.</p>
-<p class="texto-diario">Dentro do ônibus sendo sacudido pra lá e pra cá, me veio na lembrança a "dinâmica" de apresentação que ocorreu aqui na empresa ontem. A maioria da galera disse que sonhava com estabilidade financeira, casa, carro. Quando chegou minha vez, procurei ser o mais sincero possível.</p>
-<blockquote>"A única experiência válida foi a de ser pai, mas nada disso eu comentei, falei apenas que queria me encher de tatuagem e ser feliz comigo mesmo. A galera riu, mas duvido muito que tenham entendido o contexto. Ser feliz comigo mesmo e fazer somente as coisas que eu quero, não ter medo de ser quem sou."</blockquote>
+<h2 class="titulo-entrada">Ser feliz comigo mesmo e fazer somente o que quero</h2>
+</div>
+<div class="conteudo-expansivel">
+<p class="texto-diario">Primeiro final de semana no trabalho, até aqui tá indo tudo muito fácil, a teoria costuma ser sempre assim. Nos dois primeiros dias eu não estava conseguindo me alimentar bem o bastante e ficava um pouco mal, agora que trago almoço, tô bem de boa, comer em 20 min é que não é. Ontem assim que saí do trabalho fui correndo pra casa em Parnamirim, banho e sai correndo pra buscar a gordinha, contudo eu não esperava os bloqueios no caminho, quase não consigo chegar na hora que disse que chegaria. Graças a Deus deu tudo certo.</p>
+<p class="texto-diario">Hoje pela manhã precisei sair e a bonita ficou dormindo, assim como o pai, ela não consegue ficar enrolada por muito tempo, não importa quantas vezes eu a cubra com o lençol. Confesso que achei ruim não me despedir adequadamente.</p>
+<p class="texto-diario">Dentro do ônibus sendo sacudido pra lá e pra cá, me veio na lembrança a "dinâmica" de apresentação que ocorreu aqui na empresa ontem. Tínhamos que nos apresentar e responder umas das 03 questões que nos foi proposta. A maioria da galera depois de dizer o que já tinha feito na vida, disseram que sonhavam com coisas como: estabilidade financeira, casa, carro, isso e aquilo. Quando chegou minha vez, procurei ser o mais sincero possível, e claro, ter todas essas coisas de novo seriam ótimas, mas não quero mais me basear minha vida em coisas que posso perder de novo. A única experiência válida foi a de ser pai, mas nada disso eu comentei, falei apenas que queria me encher de tatuagem e ser feliz comigo mesmo.</p>
+<p class="texto-diario">A galera riu, mas duvido muito que tenham entendido o contexto. Ser feliz comigo mesmo e fazer somente as coisas que eu quero, não ter medo de ser quem sou.</p>
+</div>
 </article>
 
-<!-- 17 de Agosto de 2023 -->
-<article class="cartao-sentimento sentimento-raiva-medo" data-temp-1="#e54b4b" data-temp-2="#b070d6" style="--temp-1:#e54b4b;--temp-2:#b070d6;">
+<!-- CARD: 17 de Agosto de 2023 -->
+<article class="cartao-sentimento sentimento-raiva-medo" data-temp-1="#e54b4b" data-temp-2="#b070d6" data-temp-intensity="0.30" style="--temp-1:#e54b4b;--temp-2:#b070d6;--temp-intensity:0.30;">
+<div class="cabecalho-cartao">
 <span class="data-entrada">17 de Agosto de 2023</span>
+<h2 class="titulo-entrada">Cada escolha tem uma consequência</h2>
+</div>
+<div class="conteudo-expansivel">
 <p class="texto-diario">Cada escolha tem uma consequência, dias atrás eu precisei tanto de uma consulta e ela foi sumariamente cancelada sem previsão, me atrapalhou muito essa decisão, tendo em vista que não fui mais tentar buscar ajuda. Comecei o emprego, tem dias mais tranquilos que outros pra realizar as atividades e aprender sobre o produto e etc, mas a parte negativa é não ter acesso ao plano de saúde, isso nem faz sentido. Mesmo assim sigo na esperança de vir a ser alguém...</p>
-<p class="texto-diario">Sabe como é, alguém que se mantém, alguém que dá o mínimo para a filha, que ajuda financeiramente os pais, não o inverso. Alguém que consiga alcançar uma profissão melhor mesmo que seja dentro da atual empresa.</p>
+<p class="texto-diario">Sabe como é, alguém que se mantém, alguém que dá o mínimo para a filha, que ajuda financeiramente os pais, não o inverso. Alguém que consiga alcançar uma profissão melhor mesmo que seja dentro da atual empresa. Enfim, do nada eu recebo uma ligação me chamando pra um encaixe de última hora pra fazer com um médico que não faço ideia se quem seja, médico esse que já havia sido cancelado pelo próprio local e agora que estou ligado a um emprego não quis sair ainda e que estou na experiência.</p>
+<p class="texto-diario">Já não me basta dormir descaradamente na cara de uma moça mega chata, fazer cara feia pra umas situações que discordo um pouco, eu não posso me arriscar mais, não quero perder o emprego novamente.</p>
+</div>
 </article>
 
-<!-- 22 de Outubro de 2023 -->
-<article class="cartao-sentimento sentimento-tristeza-medo" data-temp-1="#e54b4b" data-temp-2="#3d82db" style="--temp-1:#e54b4b;--temp-2:#3d82db;">
+<!-- CARD: 22 de Outubro de 2023 -->
+<article class="cartao-sentimento sentimento-tristeza-medo" data-temp-1="#e54b4b" data-temp-2="#3d82db" data-temp-intensity="0.34" style="--temp-1:#e54b4b;--temp-2:#3d82db;--temp-intensity:0.34;">
+<div class="cabecalho-cartao">
 <span class="data-entrada">22 de Outubro de 2023</span>
-<p class="texto-diario">Não era o que esperava pra agora, digo, até sabia que não ter muito futuro pra mim lá dentro, foi muito fácil pegar ranço das coisas de lá, não só pela cobrança, mas como algumas coisas que diariamente geravam descontentamentos. Eu sabia que sairia, não imaginei ser o primeiro, um monte de gente descontente exatamente sobre tudo.</p>
-<p class="texto-diario">Quase em todo os feedbacks eu ouvia "vender não é obrigatório, mas a oferta é", mentira! Era preciso oferecer assistências e seguros, parcelamentos e empréstimo, obrigatoriamente era preciso marcar em campanhas o que ofereceu, se cliente aceitou ou não.</p>
-<blockquote>"Resolver problemas, nunca me foi um problema, sempre tive a capacidade de entender e analisar a situação de modo muito rápido, mas nunca, ou quase nunca consegui converter um contato em vendas porque na minha cabeça não fazia sentido."</blockquote>
+<h2 class="titulo-entrada">Vender não é obrigatório, mas a oferta é</h2>
+</div>
+<div class="conteudo-expansivel">
+<p class="texto-diario">Não era o que esperava pra agora, digo, até sabia que não ter muito futuro pra lá dentro, foi muito fácil pegar ranço das coisas de lá, não só pela cobrança, mas como algumas coisas que diariamente geravam descontentamentos. Eu sabia que sairia, não imaginei ser o primeiro, um monte de gente descontente exatamente sobre tudo, houve até quem pediu pra sair e não conseguiu, enfim.</p>
+<p class="texto-diario">Quase em todo os feedbacks eu ouvia "vender não é obrigatório, mas a oferta é", mentira! Era preciso oferecer assistências e seguros, parcelamentos e empréstimo, obrigatoriamente era preciso marcar em campanhas o que ofereceu, se cliente aceitou ou não e a venda só acontecia, em tese, depois de ser o chato que insiste várias e várias vezes até quem está do outro lado da linha cedesse, ou desligasse na cara de quem tá se humilhando.</p>
+<p class="texto-diario">Dar bom dia e receber, "tô aqui a 30min espero que você tenha capacidade de me ajudar", "é um desrespeito", "sou cliente há anos, sempre foi assim", "não aceito isso", "fui na loja e agora tá cobrando um monte de seguro", "quero cancelar isso"... Era assim o dia inteiro.</p>
+<p class="texto-diario">Resolver problemas, nunca me foi um problema, sempre tive a capacidade de entender e analisar a situação de modo muito rápido, mas nunca, ou quase nunca consegui converter um contato em vendas porque na minha cabeça não fazia sentido. Parcelamentos e empréstimos eram as exceções, mas não eram tão frequentes. E mesmo assim, haviam tantas marcações sobre qualquer coisa, montar um protocolo em si já era contraprodutivo, nem todo mundo sabia como montar aquilo, imagina com agilidade, imagina tendo que marcar e fazer tudo ao pé da letra... A maioria dessas outras marcações, quase nunca fiz.</p>
+</div>
 </article>
 
-<!-- 10 de Novembro de 2023 -->
-<article class="cartao-sentimento sentimento-tristeza-medo" data-temp-1="#ff8a3d" data-temp-2="#b070d6" style="--temp-1:#ff8a3d;--temp-2:#b070d6;">
+<!-- CARD: 10 de Novembro de 2023 -->
+<article class="cartao-sentimento sentimento-tristeza-medo" data-temp-1="#ff8a3d" data-temp-2="#b070d6" data-temp-intensity="0.30" style="--temp-1:#ff8a3d;--temp-2:#b070d6;--temp-intensity:0.30;">
+<div class="cabecalho-cartao">
 <span class="data-entrada">10 de Novembro de 2023</span>
-<p class="texto-diario">Eu tenho me sentido assustado nesses últimos dias, provavelmente por que as coisas que gosto não tão saindo conforme meu desejo, meus planejamentos estão sempre indo por água abaixo, talvez seja somente a ansiedade se manifestando de novo, e de novo e de novo. Já percebi uma leve incapacidade de fazer minhas atividades físicas desde que saí do meu último emprego.</p>
-<blockquote>"Queria abrir um parêntese aqui pra falar da visita rapidinha que planejei pra ver a garota que gosto... De tudo que ela enfrenta, acho que estar presente ao menos por uns minutos dá a sensação de 'você não está sozinha', pelo menos é assim que eu vejo... Ela me abraçou, chorou um pouco, agradeceu. E eu fiquei feliz por ter sido teimoso e ter ido assim mesmo."</blockquote>
+<h2 class="titulo-entrada">Planos indo por água abaixo e a ansiedade de volta</h2>
+</div>
+<div class="conteudo-expansivel">
+<p class="texto-diario">Eu tenho me sentido assustado nesses últimos dias, provavelmente por que as coisas que gosto não tão saindo conforme meu desejo, meus planejamentos estão sempre indo por água abaixo, talvez seja somente a ansiedade se manifestando de novo, e de novo e de novo. Já percebi uma leve incapacidade de fazer minhas atividades físicas desde que saí do meu último emprego. Não estava conseguindo pedalar antes por cansaço físico e mental e agora por estar deprimido outra vez não tenho tido forças pra subir na bike e pedalar Parnamirim a fora, sem falar no sol escaldante que desanima qualquer ser humano.</p>
+<p class="texto-diario">Os planos de comprar um colchão novo pra minha cama, meu guarda roupas e até mesmo a bicicleta de Helena entraram novamente em hiato, talvez não por muito tempo, pois consegui passar numa entrevista de emprego da Teleperformance. De volta onde tudo começou? Em partes sim, anos atrás eu precisei vir até aqui e fiquei por horas sem nem saber ao certo o que aconteceria. Dessa vez, tudo foi online, e por eu ter cometido um erro, minha nossa senhora, tive uma semana de gatilho toda vez que entrava no site e o erro não tinha sido dado baixa. Mas uma coisa é certa, se Helena disser que quer a bicicleta, como eu acho que quer, eu vou meter o louco e comprar.</p>
+<p class="texto-diario">Do dia pra noite recebi e-mail e SMS falando da aprovação do trabalho e que já deveria começar no dia seguinte. O horário de treinamento é das 15h às 21h20 e eu entrei em parafuso pra saber com que eu ia buscar minha filha nesse horário, ninguém da minha família tem interesse de atravessar Natal inteira pra ir buscar ela por mim, eu comentei isso com Ana Luisa, apenas eu tenho coragem de atravessar o RN inteiro pra poder ficar com Helena. Aí nessa confusão de horário, do que e como eu iria fazer, recebi inúmeras vezes mensagens da mãe de Helena dizendo que a menina quer muito ir num aniversário que vai ter piscina e não sei que mais lá. Dada a insistência, vi que ia dar confusão e não preciso disso na minha vida. Tentarei vê-la por telefone amanhã e a pego no meio da semana. Este final de semana não terei minha filha comigo. E só isso já me causou tanta agonia que posso jurar ter visto umas coisas tremerem aqui no local de trabalho.</p>
 <p class="texto-diario">Assim que tive a resposta de aprovação e do inicio da atividade me veio vários pensamentos da época que comecei na TP anos atrás...</p>
+</div>
 </article>
 
-<!-- 15 de Abril de 2024 -->
-<article class="cartao-sentimento sentimento-alegria" data-temp-1="#f7d046" data-temp-2="#3d82db" style="--temp-1:#f7d046;--temp-2:#3d82db;">
+<!-- CARD: 15 de Abril de 2024 -->
+<article class="cartao-sentimento sentimento-alegria" data-temp-1="#f7d046" data-temp-2="#3d82db" data-temp-intensity="0.32" style="--temp-1:#f7d046;--temp-2:#3d82db;--temp-intensity:0.32;">
+<div class="cabecalho-cartao">
 <span class="data-entrada">15 de Abril de 2024</span>
+<h2 class="titulo-entrada">Quero te dar um beijo, passar meu tempo contigo</h2>
+</div>
+<div class="conteudo-expansivel">
 <blockquote>"Quero te dá um beijo, passar meu tempo contigo, guardar teus segredos, ... te abraçar"</blockquote>
 <p class="texto-diario">Trechos de uma música em espanhol, que consegui captar/traduzir algumas palavras e, poxa, como eu queria poder fazer com que esses trechos se tomesem em vivências corriqueiras. Talvez, repito, talvez já tenha cativado um pouquinho...</p>
-<blockquote>"Em algumas de suas falas, ela demonstra vontade de planejar um futuro próximo. Na última vez, na chuva, perguntou se era o que queria, óbvio que era. Só preciso não me deixar desmoronar."</blockquote>
+<p class="texto-diario">Em algumas de suas falas, ela demonstra vontade de planejar um futuro próximo. Na última vez, na chuva, perguntou se era o que queria, óbvio que era. Só preciso não me deixar desmoronar.</p>
+</div>
 </article>
 
-<!-- 1 de Agosto de 2026 -->
-<article class="cartao-sentimento sentimento-tristeza-medo" data-temp-1="#3d82db" data-temp-2="#b070d6" style="--temp-1:#3d82db;--temp-2:#b070d6;">
+<!-- CARD: 1 de Agosto de 2026 -->
+<article class="cartao-sentimento sentimento-tristeza-medo" data-temp-1="#3d82db" data-temp-2="#b070d6" data-temp-intensity="0.35" style="--temp-1:#3d82db;--temp-2:#b070d6;--temp-intensity:0.35;">
+<div class="cabecalho-cartao">
 <span class="data-entrada">1 de Agosto de 2026</span>
-<p class="texto-diario">Deixa eu me apresentar direito, eu sou Robson, tenho 35 anos e trabalho como auxiliar administrativo num escritório de leilões. Da outra vez que eu vim aqui eu estava tão sobrecarregado, tão emocionalmente abalado que há algumas coisas que acho que não consegui explicar o que que tava acontecendo.</p>
-<blockquote>"A maior dor da minha vida foi ficar longe da minha filha, foi ouvir dela a pergunta do 'porque você não mora mais aqui?', isso ecoa até hoje na minha cabeça. Não foi uma decisão fácil, mas será que ela estaria feliz em meio às brigas?"</blockquote>
-<p class="texto-diario">Não há só problemas nessa minha vida, achei uma moça fantástica e que se dispôs a me ouvir e eu abri meu coração. Estamos há dois meses juntos. E pela primeira vez consigo pensar em um futuro onde eu não esteja sozinho.</p>
+<h2 class="titulo-entrada">A dor de ficar longe e a busca pelo equilíbrio</h2>
+</div>
+<div class="conteudo-expansivel">
+<p class="texto-diario">Deixa eu me apresentar direito, eu sou Robson, tenho 35 anos e trabalho como auxiliar administrativo num escritório de leilões. Da outra vez que eu vim aqui eu estava tão sobrecarregado, tão emocionalmente abalado que há algumas coisas que acho que não consegui explicar o que que tava acontecendo. Eu havia sido diagnosticado anteriormente com a questão do CID f41.2 que é a ansiedade e depressão, e isso veio num momento bem específico da minha vida foi quando me tornei pai, quando saí de casa, um relacionamento que não era o que parecia, o lance da pandemia, pessoas próximas morrendo, eu mesmo adoeci..</p>
+<p class="texto-diario">Foram muitas brigas, as diferenças se sobressaíram, algumas dívidas viraram o epicentro dos transtornos, call center.. Desemprego, contas, mais brigas. Foi um fim turbulento, embora libertador, em partes. A maior dor da minha vida foi ficar longe da minha filha, foi ouvir dela a pergunta do "porque você não mora mais aqui?", isso ecoa até hoje na minha cabeça. Não foi uma decisão fácil, mas será que ela estaria feliz em meio às brigas? É isso que penso quando os sentimentos negativos tentam me derrubar.</p>
+<p class="texto-diario">No decorrer dos anos, me descuidei por completo numa mistura de culpa e pena de mim mesmo. Tentei às vezes me apegar a alguém, mas não era respondido, quando era, me fazia lembrar das coisas que me fizeram terminar o relacionamento anterior. Tenho vivido no automático, sem muitas alegrias e surpresas, mas vejo que coisas como raiva, tristeza, cansaço estavam sempre me segurando. Atrapalhando o meu convívio com minha filha. Complicando ainda mais minha relação com minha mãe.</p>
+<p class="texto-diario">Trabalho tanto e passo o dia todo em função disso que ao tentar fazer outras coisas, me senti sem nenhum tipo de energia pra continuar. Tentei nas férias acordar cedinho e ir pedalar, ainda me imagino como ciclista, mas ao retomar ao trabalho simplesmente não consegui mais manter pois logo depois das 15h eu simplesmente cochilava independente do que eu estivesse fazendo. Isso ainda não mudou muito, mas é como se eu não tivesse mais energia alguma pra retomar. Depois que comecei a medicação novamente. Muitos enjôos apareceram. Inúmeros pesadelos, muita sede.. consequentemente muito xixi.</p>
+<p class="texto-diario">Senti que algumas coisas relacionadas ao mau humor foram quase que apagadas em muitos momentos. Nunca ouvi vozes, mas a sensação foi de estar em silêncio.</p>
+<p class="texto-diario">A medicação não faz milagres, trabalho num lugar que não dá pra saber como vou começar terminar o dia, há muitos imprevistos e às vezes eu não sei e nem soube lidar com algumas situações. Resultado disso, senti por dias uma queimação no esôfago, boca do estômago, sei lá. Achei que fosse uma nova doença. Mas foi só passar alguns eventos que a dor desapareceu.</p>
+<p class="texto-diario">Não há só problemas nessa minha vida, achei uma moça fantástica e que se dispôs a me ouvir e eu abri meu coração. Estamos há dois meses juntos. E pela primeira vez consigo pensar em um futuro onde eu não esteja sozinho (mesmo tendo minha filha aos finais de semana). Agora mais do que nunca quero estar bem pra ver minha menina crescer e ter um relacionamento que não me faça querer desistir de viver.</p>
+</div>
 </article>
 
-<!-- 19 de Setembro de 2026 (Helena) -->
-<article class="cartao-sentimento sentimento-alegria-acolhimento" data-temp-1="#f7d046" data-temp-2="#62c5aa" style="--temp-1:#f7d046;--temp-2:#62c5aa;">
+<!-- CARD: 19 de Setembro de 2026 -->
+<article class="cartao-sentimento sentimento-alegria-acolhimento" data-temp-1="#f7d046" data-temp-2="#62c5aa" data-temp-intensity="0.32" style="--temp-1:#f7d046;--temp-2:#62c5aa;--temp-intensity:0.32;">
+<div class="cabecalho-cartao">
 <span class="data-entrada">19 de Setembro de 2026</span>
-<h3 class="titulo-foto">A Presença que Ilumina</h3>
-<p class="texto-diario">Hoje foi um daqueles dias em que a presença da minha filha ilumina tudo ao redor. Olhar para a Helena me faz perceber o quanto o tempo está a passar rápido e o quanto cada momento partilhado com ela se torna o verdadeiro sentido de tudo o que faço. Brincámos, conversámos sobre as coisas dela da escola, e ver aquele sorriso genuíno renova qualquer energia esgotada pela rotina da semana.</p>
-<blockquote>"É nela que encontro a força mais pura para continuar a caminhar e a construir um futuro melhor."</blockquote>
+<h2 class="titulo-entrada">A presença da minha filha ilumina tudo</h2>
+</div>
+<div class="conteudo-expansivel">
+<p class="texto-diario">Hoje foi um daqueles dias em que a presença da minha filha ilumina tudo ao redor. Olhar para a Helena me faz perceber o quanto o tempo está a passar rápido e o quanto cada momento partilhado com ela se torna o verdadeiro sentido de tudo o que faço. Brincámos, conversámos sobre as coisas dela da escola, e ver aquele sorriso genuíno renova qualquer energia esgotada pela rotina da semana. É nela que encontro a força mais pura para continuar a caminhar e a construir um futuro melhor.</p>
 <div class="bloco-visual">
 <img src="Helena.jpg" alt="Helena">
 </div>
-</article>
-
-<!-- 20 de Setembro de 2026 (Glênia) -->
-<article class="cartao-sentimento sentimento-alegria" data-temp-1="#f7d046" data-temp-2="#b070d6" style="--temp-1:#f7d046;--temp-2:#b070d6;">
-<span class="data-entrada">20 de Setembro de 2026</span>
-<h3 class="titulo-foto">Sintonia e Leveza</h3>
-<p class="texto-diario">Passar o dia com a Glênia tem sido a confirmação mais bonita de que o equilíbrio e a leveza finalmente encontraram o seu lugar na minha vida. Conversámos sobre tudo, desde os assuntos mais profundos e desafiantes até aquelas bobagens que só a gente entende, rimos até não poder mais dentro do carro e percebi, mais uma vez, o quão natural e segura é a nossa sintonia.</p>
-<blockquote>"É incrível como a vida nos dá voltas inesperadas para nos colocar exatamente onde merecemos estar."</blockquote>
-<div class="bloco-visual">
-<img src="Glênia.jpg" alt="Glênia">
 </div>
 </article>
 
-<!-- 22 de Setembro de 2026 -->
-<article class="cartao-sentimento sentimento-alegria-tristeza" data-temp-1="#f7d046" data-temp-2="#3d82db" style="--temp-1:#f7d046;--temp-2:#3d82db;">
+<!-- CARD: 20 de Setembro de 2026 -->
+<article class="cartao-sentimento sentimento-alegria" data-temp-1="#f7d046" data-temp-2="#b070d6" data-temp-intensity="0.32" style="--temp-1:#f7d046;--temp-2:#b070d6;--temp-intensity:0.32;">
+<div class="cabecalho-cartao">
+<span class="data-entrada">20 de Setembro de 2026</span>
+<h2 class="titulo-entrada">O equilíbrio e a leveza ao lado da Glênia</h2>
+</div>
+<div class="conteudo-expansivel">
+<p class="texto-diario">Passar o dia com a Glênia tem sido a confirmação mais bonita de que o equilíbrio e a leveza finalmente encontraram o seu lugar na minha vida. Conversámos sobre tudo, desde os assuntos mais profundos e desafiantes até aquelas bobagens que só a gente entende, rimos até não poder mais dentro do carro e percebi, mais uma vez, o quão natural e segura é a nossa sintonia. É incrível como a vida nos dá voltas inesperadas para nos colocar exatamente onde merecemos estar.</p>
+<div class="bloco-visual">
+<img src="Glênia.jpg" alt="Glênia">
+</div>
+</div>
+</article>
+
+<!-- CARD: 22 de Setembro de 2026 -->
+<article class="cartao-sentimento sentimento-alegria-tristeza" data-temp-1="#f7d046" data-temp-2="#3d82db" data-temp-intensity="0.35" style="--temp-1:#f7d046;--temp-2:#3d82db;--temp-intensity:0.35;">
+<div class="cabecalho-cartao">
 <span class="data-entrada">22 de Setembro de 2026</span>
+<h2 class="titulo-entrada">Quase quatro meses de namoro e cumplicidade</h2>
+</div>
+<div class="conteudo-expansivel">
 <p class="texto-diario">Pertinho de fazer quatro meses de namoro, e eu pensando que se eu for olhar em retrospecto, consigo claramente perceber o quão bem esse novo relacionamento me tem feito. Um exemplo fortíssimo disso, enquanto eu pensava nas minhas palavras ela me envia um áudio me dando suporte pra seguir meus devaneios. A transcrição é algo do tipo:</p>
 <blockquote>"(...) então se é uma coisa que te atrai, eu tô aqui pra te apoiar e ajudar no que puder."</blockquote>
 <p class="texto-diario" style="text-align:center;text-indent:0">Respondi em caixa alta: <span class="destaque-forte">"EU TE AMO"</span>.</p>
 <p class="texto-diario">Eu me apaixonei pela pessoa, pelo jeito, pela risada, pelo cheiro, pelas histórias... É surpreendente como nos encaixamos. Mais de uma vez em nossas conversas dentro do carro, ficou nítido que "tínhamos que passar pelo que passamos pra nós encontrar", tem quem chame de destino, não sei como chamar, sei que tô gostando.</p>
-<blockquote>"Levou um tempo, mas acho que encontrei o equilíbrio que nas outras tentativas de relacionamento não tinha. Dessa vez me sinto desejado na medida que desejo, me sinto amado na medida que amo, e a certeza de querer fazer dar certo."</blockquote>
+<p class="texto-diario">Por falar em conversas, com ela me sinto seguro suficiente pra falar sobre coisas que antes eu só escrevia e não mostrava pra ninguém. Me senti muitas vezes vulnerável diante dela, e por sua vez, soube me acolher, soube fazer eu não me sentir menos ou pior por ter vivido determinadas situações.</p>
+<p class="texto-diario">A gente transita entre assuntos complicadíssimos e difíceis de lidar até um monte de bobagens da 5ª série. Nesses quase quatro meses, eu ainda descubro novidades sobre ela a cada história. Emocionado que sou já pensei que seria uma boa ideia juntar os panos de bunda, dessa vez, sou eu que quero, não tô sendo conduzido/impelido a fazer. Mas cada coisa no seu tempo. Sei que isso vai acontecer em breve.</p>
+<p class="texto-diario">Levou um tempo, mas acho que encontrei o equilíbrio que nas outras tentativas de relacionamento não tinha. Dessa vez me sinto desejado na medida que desejo, me sinto amado na medida que amo, e a certeza de querer fazer dar certo.</p>
+</div>
 </article>
 
 </div>
